@@ -1,0 +1,1382 @@
+SSDT Automation Wed Feb 12 20:43:10 2014: Start to Log Test Progress
+
+
+
+Checking mounts:
+    Log files mounted on /mnt/ssdt/logfiles.
+    Source code root mounted on /mnt/ssdt/code.
+    Firmware files mounted on /mnt/ssdt/firmware.
+    System files mounted on /mnt/ssdt/.system.
+    Client-local files mounted on /mnt/ssdt/.clientlocal.
+    Scratch folder mounted on /mnt/ssdt/scratch.
+    Log file drop box mounted on /mnt/ssdt/LogFileDropBox.
+
+Hostname:      yoxu-ssdt.lsi.com
+IP address:    135.24.22.205 (em1)
+MAC address:   E0:69:95:D2:0B:49 (em1)
+Kernel:        2.6.43.8-1.ssdt0.9.4.fc15.x86_64
+Image version: 0.8.11-SSDT.fc15 (USB stick)
+CPU:           Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz
+Motherboard:   Intel Corporation DH67VR AAG27177-201
+Bios:          Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011
+Total memory:  3203588 kB
+Free memory:   2124160 kB
+Total swap:    0 kB
+Free swap:     0 kB
+
+
+Running Python library from /mnt/ssdt/code/python/Test_AD
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+135.24.22.205
+/home/yoxu/Test_Tip
+Running Python library from /home/yoxu/Test_Tip
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+/mnt/ssdt/logfiles exists
+/mnt/ssdt/code exists
+/mnt/ssdt/firmware exists
+/mnt/ssdt/scratch exists
+/mnt/ssdt/.system exists
+/mnt/ssdt/.clientlocal exists
+/mnt/ssdt/LogFileDropBox exists
+/mnt/ssdt/LogFileArchive exists
+/mnt/shfw exists
+/home/yoxu exists
+
+Checking mounts:
+    Log files mounted on /mnt/ssdt/logfiles.
+    Source code root mounted on /mnt/ssdt/code.
+    Firmware files mounted on /mnt/ssdt/firmware.
+    System files mounted on /mnt/ssdt/.system.
+    Client-local files mounted on /mnt/ssdt/.clientlocal.
+    Scratch folder mounted on /mnt/ssdt/scratch.
+    Log file drop box mounted on /mnt/ssdt/LogFileDropBox.
+
+Hostname:      yoxu-ssdt.lsi.com
+IP address:    135.24.22.205 (em1)
+MAC address:   E0:69:95:D2:0B:49 (em1)
+Kernel:        2.6.43.8-1.ssdt0.9.4.fc15.x86_64
+Image version: 0.8.11-SSDT.fc15 (USB stick)
+CPU:           Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz
+Motherboard:   Intel Corporation DH67VR AAG27177-201
+Bios:          Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011
+Total memory:  3203588 kB
+Free memory:   2124072 kB
+Total swap:    0 kB
+Free swap:     0 kB
+
+
+Running Python library from /mnt/ssdt/code/python/Test_AD
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+135.24.22.205
+/home/yoxu/Test_Tip
+Running Python library from /home/yoxu/Test_Tip
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+/mnt/ssdt/logfiles exists
+/mnt/ssdt/code exists
+/mnt/ssdt/firmware exists
+/mnt/ssdt/scratch exists
+/mnt/ssdt/.system exists
+/mnt/ssdt/.clientlocal exists
+/mnt/ssdt/LogFileDropBox exists
+/mnt/ssdt/LogFileArchive exists
+/mnt/shfw exists
+/home/yoxu exists
+Scan SATA HBA & devices ...
+1 HBA(s) found.
+- Scan HBA 0 ...
+  6 device(s) found.
+  - Checking HBA 0, device 0
+Opening /dev/ssdt0
+SandForce device found at HBA 0, device 0
+---------------------------
+Model Number         : SandForce[745502]                       
+Firmware Revision    : EA4ABBF0
+Serial Number        : 962025013012        
+Number of Sectors    : 937703088 (0x37E436B0)
+Sector Size          : 512
+Capacity (GB)        : 480.104
+-------------------
+-------------------
+
+Script has completed with exit code 0x00000000 (0)
+
+
+Checking mounts:
+    Log files mounted on /mnt/ssdt/logfiles.
+    Source code root mounted on /mnt/ssdt/code.
+    Firmware files mounted on /mnt/ssdt/firmware.
+    System files mounted on /mnt/ssdt/.system.
+    Client-local files mounted on /mnt/ssdt/.clientlocal.
+    Scratch folder mounted on /mnt/ssdt/scratch.
+    Log file drop box mounted on /mnt/ssdt/LogFileDropBox.
+
+Hostname:      yoxu-ssdt.lsi.com
+IP address:    135.24.22.205 (em1)
+MAC address:   E0:69:95:D2:0B:49 (em1)
+Kernel:        2.6.43.8-1.ssdt0.9.4.fc15.x86_64
+Image version: 0.8.11-SSDT.fc15 (USB stick)
+CPU:           Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz
+Motherboard:   Intel Corporation DH67VR AAG27177-201
+Bios:          Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011
+Total memory:  3203588 kB
+Free memory:   2124172 kB
+Total swap:    0 kB
+Free swap:     0 kB
+
+
+Running Python library from /mnt/ssdt/code/python/Test_AD
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+135.24.22.205
+/home/yoxu/Test_Tip
+Running Python library from /home/yoxu/Test_Tip
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+/mnt/ssdt/logfiles exists
+/mnt/ssdt/code exists
+/mnt/ssdt/firmware exists
+/mnt/ssdt/scratch exists
+/mnt/ssdt/.system exists
+/mnt/ssdt/.clientlocal exists
+/mnt/ssdt/LogFileDropBox exists
+/mnt/ssdt/LogFileArchive exists
+/mnt/shfw exists
+/home/yoxu exists
+
+Checking mounts:
+    Log files mounted on /mnt/ssdt/logfiles.
+    Source code root mounted on /mnt/ssdt/code.
+    Firmware files mounted on /mnt/ssdt/firmware.
+    System files mounted on /mnt/ssdt/.system.
+    Client-local files mounted on /mnt/ssdt/.clientlocal.
+    Scratch folder mounted on /mnt/ssdt/scratch.
+    Log file drop box mounted on /mnt/ssdt/LogFileDropBox.
+
+Hostname:      yoxu-ssdt.lsi.com
+IP address:    135.24.22.205 (em1)
+MAC address:   E0:69:95:D2:0B:49 (em1)
+Kernel:        2.6.43.8-1.ssdt0.9.4.fc15.x86_64
+Image version: 0.8.11-SSDT.fc15 (USB stick)
+CPU:           Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz
+Motherboard:   Intel Corporation DH67VR AAG27177-201
+Bios:          Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011
+Total memory:  3203588 kB
+Free memory:   2123084 kB
+Total swap:    0 kB
+Free swap:     0 kB
+
+
+Running Python library from /mnt/ssdt/code/python/Test_AD
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+135.24.22.205
+/home/yoxu/Test_Tip
+Running Python library from /home/yoxu/Test_Tip
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+/mnt/ssdt/logfiles exists
+/mnt/ssdt/code exists
+/mnt/ssdt/firmware exists
+/mnt/ssdt/scratch exists
+/mnt/ssdt/.system exists
+/mnt/ssdt/.clientlocal exists
+/mnt/ssdt/LogFileDropBox exists
+/mnt/ssdt/LogFileArchive exists
+/mnt/shfw exists
+/home/yoxu exists
+Scan SATA HBA & devices ...
+1 HBA(s) found.
+- Scan HBA 0 ...
+  6 device(s) found.
+  - Checking HBA 0, device 0
+Opening /dev/ssdt0
+SandForce device found at HBA 0, device 0
+Log File is /mnt/ssdt/logfiles/SecurityErase_yoxu-ssdt_2014-02-12_04.43.27.log
+
+2014-02-12_04:43:29.037 CRITICAL 
+<TestHeader>
+    <Script>SecurityErase.py</Script>
+    <ScriptPath>/home/yoxu/Test_Tip/Scripts/Utilities</ScriptPath>
+    <Arguments>--mode=1</Arguments>
+    <ScriptName>None</ScriptName>
+    <Description>None</Description>
+    <Author>None</Author>
+    <ScriptVersion>None</ScriptVersion>
+    <Updated></Updated>
+    <UpdatedBy></UpdatedBy>
+    <DeviceNumber>0</DeviceNumber>
+    <ScriptLogFile>/mnt/ssdt/logfiles/SecurityErase_yoxu-ssdt_2014-02-12_04.43.27.log</ScriptLogFile>
+    <CliLogFile>/mnt/ssdt/logfiles/SecurityErase_yoxu-ssdt_2014-02-12_04.43.27.ecli.log</CliLogFile>
+    <StartTime>2014-02-12 04:43:27</StartTime>
+    <HostName>yoxu-ssdt</HostName>
+    <HostIpAddress>135.24.22.205</HostIpAddress>
+    <HostMacAddress>E0:69:95:D2:0B:49</HostMacAddress>
+    <PythonVersion>2.7.1</PythonVersion>
+    <SsdtPythonVersion>0.0.0</SsdtPythonVersion>
+    <SsdtPythonLibsVersion>ssdt0.2.7f</SsdtPythonLibsVersion>
+    <DriverVersion>1.12.33.fc15 - SandForce Jun 26 2013 07:42:26</DriverVersion>
+    <OsVersion>Fedora 15</OsVersion>
+    <KernelVersion>2.6.43.8-1.ssdt0.9.4.fc15.x86_64</KernelVersion>
+    <SsdtImageVersion>0.8.11-SSDT.fc15</SsdtImageVersion>
+    <Cpu>Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz</Cpu>
+    <Motherboard>Intel Corporation DH67VR AAG27177-201</Motherboard>
+    <BiosVersion>Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011</BiosVersion>
+    <SystemMemory>3280474112</SystemMemory>
+    <TestComment></TestComment>
+</TestHeader>
+2014-02-12_04:43:29.049 CRITICAL 
+<SsdInfo>
+  <SerialNumber>962025013012</SerialNumber>
+  <ChipFamily>PPro</ChipFamily>
+  <ChipRevision>B01</ChipRevision>
+  <FirmwareClass>~Unknown~</FirmwareClass>
+  <ConfigId>25717</ConfigId>
+  <BuildId>~Unknown~</BuildId>
+  <Model>SandForce[745502]</Model>
+  <FirmwareRevision>EA4ABBF0</FirmwareRevision>
+  <RomRevision>20D</RomRevision>
+  <HardwareRevision>536879965</HardwareRevision>
+  <EepromRevision>~Unknown~</EepromRevision>
+  <FirmwareType>Flashware (1)</FirmwareType>
+  <UnlockLevel>3</UnlockLevel>
+  <LbaCount>0x37E436B0 (937703088)</LbaCount>
+  <LogicalSectorSize>0x200 (512)</LogicalSectorSize>
+  <LogicalCapacity>0x6FC86D6000 (480103981056)</LogicalCapacity>
+  <Wwn>500232D000000001</Wwn>
+  <ConfigurationSetting>0x0001</ConfigurationSetting>
+  <NandPageSize>0x4500 (17664)</NandPageSize>
+  <NumLogSectorsPerPhysPage>0x10 (16)</NumLogSectorsPerPhysPage>
+  <NumChipEnables>0x4 (4)</NumChipEnables>
+  <NumDiesPerChipEnable>0x2 (2)</NumDiesPerChipEnable>
+  <NumBlocksPerDie>0x400 (1024)</NumBlocksPerDie>
+  <NumPagesPerBlock>0x100 (256)</NumPagesPerBlock>
+  <AccurevVersion>B:FW_PPRO_AD_L2:FW_PPRO_E_A_4_Release-745502</AccurevVersion>
+  <ConfigFile>cfg/cfg_MLC_Toshiba_64Gb_TH58TEG9DDJBA89_2Q_4C_2D</ConfigFile>
+</SsdInfo>
+
+!! Secure Erase only. Use TestSecurityErase.py for full testing features !!!
+2014-02-12_04:43:29.848 INFO Security Erase is in Enhanced Mode with User Password Identifier.
+2014-02-12_04:43:31.527 INFO Secure Erase completed
+2014-02-12_04:43:36.848 CRITICAL 
+<TestTrailer>
+    <Result>Pass</Result>
+    <ErrorCode>0x00000000</ErrorCode>
+    <ErrorMessage></ErrorMessage>
+    <SmartAttributes>
+        <RetiredRBlockCount>0</RetiredRBlockCount>
+        <GigabytesErased>6</GigabytesErased>
+        <ProgramFailCount>0</ProgramFailCount>
+        <EraseFailCount>0</EraseFailCount>
+        <ProgramFailCount2>0</ProgramFailCount2>
+        <EraseFailCount2>0</EraseFailCount2>
+        <ReportedUncorrectableErrors>0</ReportedUncorrectableErrors>
+        <SsdLifeLeft>0</SsdLifeLeft>
+        <LifetimeWritesToFlash>0</LifetimeWritesToFlash>
+        <MaxPeCount>1</MaxPeCount>
+        <MaxPeCountPerRBlock>13</MaxPeCountPerRBlock>
+        <MinPeCount>0</MinPeCount>
+        <MinPeCountPerRBlock>6</MinPeCountPerRBlock>
+    </SmartAttributes>
+    <DeviceNumber>0</DeviceNumber>
+    <ScriptLogFile>/mnt/ssdt/logfiles/SecurityErase_yoxu-ssdt_2014-02-12_04.43.27.log</ScriptLogFile>
+    <CliLogFile>/mnt/ssdt/logfiles/SecurityErase_yoxu-ssdt_2014-02-12_04.43.27.ecli.log</CliLogFile>
+    <StartTime>2014-02-12 04:43:27</StartTime>
+    <EndTime>2014-02-12 04:43:31</EndTime>
+    <Duration>00:00:03</Duration>
+    <HostName>yoxu-ssdt</HostName>
+    <HostIpAddress>135.24.22.205</HostIpAddress>
+    <HostMacAddress>E0:69:95:D2:0B:49</HostMacAddress>
+    <PythonVersion>2.7.1</PythonVersion>
+    <SsdtPythonVersion>0.0.0</SsdtPythonVersion>
+    <SsdtPythonLibsVersion>ssdt0.2.7f</SsdtPythonLibsVersion>
+    <DriverVersion>1.12.33.fc15 - SandForce Jun 26 2013 07:42:26</DriverVersion>
+    <OsVersion>Fedora 15</OsVersion>
+    <KernelVersion>2.6.43.8-1.ssdt0.9.4.fc15.x86_64</KernelVersion>
+    <SsdtImageVersion>0.8.11-SSDT.fc15</SsdtImageVersion>
+    <Cpu>Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz</Cpu>
+    <Motherboard>Intel Corporation DH67VR AAG27177-201</Motherboard>
+    <BiosVersion>Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011</BiosVersion>
+    <SystemMemory>3280474112</SystemMemory>
+    <TestComment></TestComment>
+</TestTrailer>
+
+Log file moved to '/home/yoxu/log/SecurityErase_yoxu-ssdt_2014-02-12_04.43.27.log'.
+
+Script has completed with exit code 0x00000000 (0)
+
+
+Checking mounts:
+    Log files mounted on /mnt/ssdt/logfiles.
+    Source code root mounted on /mnt/ssdt/code.
+    Firmware files mounted on /mnt/ssdt/firmware.
+    System files mounted on /mnt/ssdt/.system.
+    Client-local files mounted on /mnt/ssdt/.clientlocal.
+    Scratch folder mounted on /mnt/ssdt/scratch.
+    Log file drop box mounted on /mnt/ssdt/LogFileDropBox.
+
+Hostname:      yoxu-ssdt.lsi.com
+IP address:    135.24.22.205 (em1)
+MAC address:   E0:69:95:D2:0B:49 (em1)
+Kernel:        2.6.43.8-1.ssdt0.9.4.fc15.x86_64
+Image version: 0.8.11-SSDT.fc15 (USB stick)
+CPU:           Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz
+Motherboard:   Intel Corporation DH67VR AAG27177-201
+Bios:          Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011
+Total memory:  3203588 kB
+Free memory:   2123988 kB
+Total swap:    0 kB
+Free swap:     0 kB
+
+
+Running Python library from /mnt/ssdt/code/python/Test_AD
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+135.24.22.205
+/home/yoxu/Test_Tip
+Running Python library from /home/yoxu/Test_Tip
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+/mnt/ssdt/logfiles exists
+/mnt/ssdt/code exists
+/mnt/ssdt/firmware exists
+/mnt/ssdt/scratch exists
+/mnt/ssdt/.system exists
+/mnt/ssdt/.clientlocal exists
+/mnt/ssdt/LogFileDropBox exists
+/mnt/ssdt/LogFileArchive exists
+/mnt/shfw exists
+/home/yoxu exists
+
+Checking mounts:
+    Log files mounted on /mnt/ssdt/logfiles.
+    Source code root mounted on /mnt/ssdt/code.
+    Firmware files mounted on /mnt/ssdt/firmware.
+    System files mounted on /mnt/ssdt/.system.
+    Client-local files mounted on /mnt/ssdt/.clientlocal.
+    Scratch folder mounted on /mnt/ssdt/scratch.
+    Log file drop box mounted on /mnt/ssdt/LogFileDropBox.
+
+Hostname:      yoxu-ssdt.lsi.com
+IP address:    135.24.22.205 (em1)
+MAC address:   E0:69:95:D2:0B:49 (em1)
+Kernel:        2.6.43.8-1.ssdt0.9.4.fc15.x86_64
+Image version: 0.8.11-SSDT.fc15 (USB stick)
+CPU:           Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz
+Motherboard:   Intel Corporation DH67VR AAG27177-201
+Bios:          Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011
+Total memory:  3203588 kB
+Free memory:   2123508 kB
+Total swap:    0 kB
+Free swap:     0 kB
+
+
+Running Python library from /mnt/ssdt/code/python/Test_AD
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+135.24.22.205
+/home/yoxu/Test_Tip
+Running Python library from /home/yoxu/Test_Tip
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+/mnt/ssdt/logfiles exists
+/mnt/ssdt/code exists
+/mnt/ssdt/firmware exists
+/mnt/ssdt/scratch exists
+/mnt/ssdt/.system exists
+/mnt/ssdt/.clientlocal exists
+/mnt/ssdt/LogFileDropBox exists
+/mnt/ssdt/LogFileArchive exists
+/mnt/shfw exists
+/home/yoxu exists
+Scan SATA HBA & devices ...
+1 HBA(s) found.
+- Scan HBA 0 ...
+  6 device(s) found.
+  - Checking HBA 0, device 0
+Opening /dev/ssdt0
+SandForce device found at HBA 0, device 0
+2014-02-12 04:43:45,842 INFO 
+<TestHeader>
+    <Script>StandbyImmediate.py</Script>
+    <ScriptPath>/home/yoxu/Test_Tip/Scripts/Utilities</ScriptPath>
+    <Arguments></Arguments>
+    <ScriptName>StandbyImmediate.py</ScriptName>
+    <Description>Issues Standby Immediate (E0h) command</Description>
+    <Author>Youngsbu Ahn</Author>
+    <ScriptVersion>2.1.0</ScriptVersion>
+    <Updated>1/23/2014</Updated>
+    <UpdatedBy>Cliff Li</UpdatedBy>
+    <DeviceNumber>0</DeviceNumber>
+    <ScriptLogFile>/mnt/ssdt/logfiles/StandbyImmediate_yoxu-ssdt.lsi.com_Dev0_2014-02-12_04-43-45.log</ScriptLogFile>
+    <CliLogFile>~Unknown~</CliLogFile>
+    <StartTime>2014-02-12_04:43:45</StartTime>
+    <HostName>yoxu-ssdt</HostName>
+    <HostIpAddress>135.24.22.205</HostIpAddress>
+    <HostMacAddress>E0:69:95:D2:0B:49</HostMacAddress>
+    <PythonVersion>2.7.1</PythonVersion>
+    <SsdtPythonVersion>0.0.0</SsdtPythonVersion>
+    <SsdtPythonLibsVersion>ssdt0.2.7f</SsdtPythonLibsVersion>
+    <DriverVersion>1.12.33.fc15 - SandForce Jun 26 2013 07:42:26</DriverVersion>
+    <OsVersion>Fedora 15</OsVersion>
+    <KernelVersion>2.6.43.8-1.ssdt0.9.4.fc15.x86_64</KernelVersion>
+    <SsdtImageVersion>0.8.11-SSDT.fc15</SsdtImageVersion>
+    <Cpu>Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz</Cpu>
+    <Motherboard>Intel Corporation DH67VR AAG27177-201</Motherboard>
+    <BiosVersion>Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011</BiosVersion>
+    <SystemMemory>3280474112</SystemMemory>
+</TestHeader>
+2014-02-12 04:43:47,149 INFO 
+<SsdInfo>
+    <SerialNumber>962025013012</SerialNumber>
+    <ChipFamily>PPro</ChipFamily>
+    <ChipRevision>B01</ChipRevision>
+    <FirmwareClass>~Unknown~</FirmwareClass>
+    <ConfigId>25717</ConfigId>
+    <BuildId>~Unknown~</BuildId>
+    <Model>SandForce[745502]</Model>
+    <FirmwareRevision>EA4ABBF0</FirmwareRevision>
+    <RomRevision>20D</RomRevision>
+    <HardwareRevision>536879965</HardwareRevision>
+    <EepromRevision>~Unknown~</EepromRevision>
+    <FirmwareType>Flashware (1)</FirmwareType>
+    <UnlockLevel>3</UnlockLevel>
+    <LbaCount>0x37E436B0 (937703088)</LbaCount>
+    <LogicalSectorSize>0x200 (512)</LogicalSectorSize>
+    <LogicalCapacity>0x6FC86D6000 (480103981056)</LogicalCapacity>
+    <Wwn>500232D000000001</Wwn>
+    <ConfigurationSetting>0x0001</ConfigurationSetting>
+    <NandPageSize>0x4500 (17664)</NandPageSize>
+    <NumLogSectorsPerPhysPage>0x10 (16)</NumLogSectorsPerPhysPage>
+    <NumChipEnables>0x4 (4)</NumChipEnables>
+    <NumDiesPerChipEnable>0x2 (2)</NumDiesPerChipEnable>
+    <NumBlocksPerDie>0x400 (1024)</NumBlocksPerDie>
+    <NumPagesPerBlock>0x100 (256)</NumPagesPerBlock>
+    <AccurevVersion>B:FW_PPRO_AD_L2:FW_PPRO_E_A_4_Release-745502</AccurevVersion>
+    <ConfigFile>cfg/cfg_MLC_Toshiba_64Gb_TH58TEG9DDJBA89_2Q_4C_2D</ConfigFile>
+</SsdInfo>
+last line of init
+create table diagIdentTable
+last line of init
+create table identifyTable
+last line of init
+create table statisticsTable
+last line of init
+create table miscTable
+last line of init
+class AstaBlueQuadPort is created
+2014-02-12 04:43:47,755 INFO this is the default level
+2014-02-12 04:43:47,756 INFO Device info:
+2014-02-12 04:43:47,756 INFO     Model: SandForce[745502]                       
+2014-02-12 04:43:47,756 INFO     FW Rev: EA4ABBF0
+2014-02-12 04:43:47,756 INFO     Serial #: 962025013012        
+2014-02-12 04:43:48,216 INFO This is a PPro drive
+2014-02-12 04:43:48,468 INFO No option is specified. CDU update is skipped.
+2014-02-12 04:43:48,716 INFO Setting Config Drive Unique Data: [0684h] = 00h 00h
+class AstaBlueQuadPort is removed
+2014-02-12 04:43:53,468 INFO 
+<TestTrailer>
+    <Result>Pass</Result>
+    <ErrorCode>0x00000000</ErrorCode>
+    <ErrorMessage></ErrorMessage>
+    <RandomSeed>1392234292</RandomSeed>
+    <SmartAttributes>
+        <RetiredRBlockCount>0</RetiredRBlockCount>
+        <GigabytesErased>6</GigabytesErased>
+        <ProgramFailCount>0</ProgramFailCount>
+        <EraseFailCount>0</EraseFailCount>
+        <ProgramFailCount2>0</ProgramFailCount2>
+        <EraseFailCount2>0</EraseFailCount2>
+        <ReportedUncorrectableErrors>0</ReportedUncorrectableErrors>
+        <SsdLifeLeft>0</SsdLifeLeft>
+        <LifetimeWritesToFlash>0</LifetimeWritesToFlash>
+        <MaxPeCount>1</MaxPeCount>
+        <MaxPeCountPerRBlock>13</MaxPeCountPerRBlock>
+        <MinPeCount>0</MinPeCount>
+        <MinPeCountPerRBlock>6</MinPeCountPerRBlock>
+    </SmartAttributes>
+    <DeviceNumber>0</DeviceNumber>
+    <ScriptLogFile>/mnt/ssdt/logfiles/StandbyImmediate_yoxu-ssdt.lsi.com_Dev0_2014-02-12_04-43-45.log</ScriptLogFile>
+    <CliLogFile>~Unknown~</CliLogFile>
+    <StartTime>2014-02-12_04:43:45</StartTime>
+    <EndTime>2014-02-12_04:43:49</EndTime>
+    <Duration>0:00:07</Duration>
+    <HostName>yoxu-ssdt</HostName>
+    <HostIpAddress>135.24.22.205</HostIpAddress>
+    <HostMacAddress>E0:69:95:D2:0B:49</HostMacAddress>
+    <PythonVersion>2.7.1</PythonVersion>
+    <SsdtPythonVersion>0.0.0</SsdtPythonVersion>
+    <SsdtPythonLibsVersion>ssdt0.2.7f</SsdtPythonLibsVersion>
+    <DriverVersion>1.12.33.fc15 - SandForce Jun 26 2013 07:42:26</DriverVersion>
+    <OsVersion>Fedora 15</OsVersion>
+    <KernelVersion>2.6.43.8-1.ssdt0.9.4.fc15.x86_64</KernelVersion>
+    <SsdtImageVersion>0.8.11-SSDT.fc15</SsdtImageVersion>
+    <Cpu>Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz</Cpu>
+    <Motherboard>Intel Corporation DH67VR AAG27177-201</Motherboard>
+    <BiosVersion>Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011</BiosVersion>
+    <SystemMemory>3280474112</SystemMemory>
+</TestTrailer>
+
+Log file moved to '/home/yoxu/log/StandbyImmediate_yoxu-ssdt.lsi.com_Dev0_2014-02-12_04-43-45.log'.
+
+Checking mounts:
+    Log files mounted on /mnt/ssdt/logfiles.
+    Source code root mounted on /mnt/ssdt/code.
+    Firmware files mounted on /mnt/ssdt/firmware.
+    System files mounted on /mnt/ssdt/.system.
+    Client-local files mounted on /mnt/ssdt/.clientlocal.
+    Scratch folder mounted on /mnt/ssdt/scratch.
+    Log file drop box mounted on /mnt/ssdt/LogFileDropBox.
+
+Hostname:      yoxu-ssdt.lsi.com
+IP address:    135.24.22.205 (em1)
+MAC address:   E0:69:95:D2:0B:49 (em1)
+Kernel:        2.6.43.8-1.ssdt0.9.4.fc15.x86_64
+Image version: 0.8.11-SSDT.fc15 (USB stick)
+CPU:           Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz
+Motherboard:   Intel Corporation DH67VR AAG27177-201
+Bios:          Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011
+Total memory:  3203588 kB
+Free memory:   2123700 kB
+Total swap:    0 kB
+Free swap:     0 kB
+
+
+Running Python library from /mnt/ssdt/code/python/Test_AD
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+135.24.22.205
+/home/yoxu/Test_Tip
+Running Python library from /home/yoxu/Test_Tip
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+/mnt/ssdt/logfiles exists
+/mnt/ssdt/code exists
+/mnt/ssdt/firmware exists
+/mnt/ssdt/scratch exists
+/mnt/ssdt/.system exists
+/mnt/ssdt/.clientlocal exists
+/mnt/ssdt/LogFileDropBox exists
+/mnt/ssdt/LogFileArchive exists
+/mnt/shfw exists
+/home/yoxu exists
+
+Checking mounts:
+    Log files mounted on /mnt/ssdt/logfiles.
+    Source code root mounted on /mnt/ssdt/code.
+    Firmware files mounted on /mnt/ssdt/firmware.
+    System files mounted on /mnt/ssdt/.system.
+    Client-local files mounted on /mnt/ssdt/.clientlocal.
+    Scratch folder mounted on /mnt/ssdt/scratch.
+    Log file drop box mounted on /mnt/ssdt/LogFileDropBox.
+
+Hostname:      yoxu-ssdt.lsi.com
+IP address:    135.24.22.205 (em1)
+MAC address:   E0:69:95:D2:0B:49 (em1)
+Kernel:        2.6.43.8-1.ssdt0.9.4.fc15.x86_64
+Image version: 0.8.11-SSDT.fc15 (USB stick)
+CPU:           Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz
+Motherboard:   Intel Corporation DH67VR AAG27177-201
+Bios:          Intel Corp. BLH6710H.86A.0104.2011.0215.1516 02/15/2011
+Total memory:  3203588 kB
+Free memory:   2123712 kB
+Total swap:    0 kB
+Free swap:     0 kB
+
+
+Running Python library from /mnt/ssdt/code/python/Test_AD
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+135.24.22.205
+/home/yoxu/Test_Tip
+Running Python library from /home/yoxu/Test_Tip
+Running ssdt release from /mnt/ssdt/code/ssdt/ssdt0.2.7f.ssdt0.9.4.fc15.x86_64
+
+
+Loaded SSDT driver 1.12.33.fc15
+
+/mnt/ssdt/logfiles exists
+/mnt/ssdt/code exists
+/mnt/ssdt/firmware exists
+/mnt/ssdt/scratch exists
+/mnt/ssdt/.system exists
+/mnt/ssdt/.clientlocal exists
+/mnt/ssdt/LogFileDropBox exists
+/mnt/ssdt/LogFileArchive exists
+/mnt/shfw exists
+/home/yoxu exists
+Scan SATA HBA & devices ...
+1 HBA(s) found.
+- Scan HBA 0 ...
+  6 device(s) found.
+  - Checking HBA 0, device 0
+Opening /dev/ssdt0
+SandForce device found at HBA 0, device 0
+Log File is /mnt/ssdt/logfiles/ConfigDriveUnique_yoxu-ssdt_2014-02-12_04.44.04.log
+
+Customer id not supported, calling generic SandForce ConfigDriveUniqueData
+---------------------------
+Model Number         : SandForce[745502]                       
+Firmware Revision    : EA4ABBF0
+Serial Number        : 962025013012        
+Number of Sectors    : 937703088 (0x37E436B0)
+Sector Size          : 512
+Capacity (GB)        : 480.104
+-------------------
+-------------------
+   CDU Identify Device Data
+-----------------------------------
+Model Number                                        :                                         
+Firmware Revision                                   : 
+Serial Number                                       : 962025013012        
+World Wide Name                                     : 500232D000000001
+World Wide Name Extension                           : 
+Additional Product Identifier                       : 
+Current Media Serial Number                         :                                                             
+Vendor Specific                                     : 
+Time For Normal Security Erase (minutes)            : 0000h / 0
+Time For Enhanced Security Erase (minutes)          : 0000h / 0
+Is Sanitize Feature Supported                       : False
+Is Crypto Scramble Ext Supported                    : False
+Is Overwrite Ext Supported                          : False
+Is Block Erase Ext Supported                        : False
+Is Write UnCorrectable Ext Command Supported        : False
+Is Write UnCorrectable ExtCommand Supported 120     : False
+Is SCT Write Same Command Supported                 : False
+Is SCT Error Recovery Command Supported             : False
+Is SCT Feature Control Command Supported            : False
+Logical Sectors Per Physical Sector                 : 0000h / 0
+Device From Factor Size                             : 0000h / 0
+Is NCQ Priority Info Supported                      : False
+Word 235 Maximum 512 Block per Micro Code Command   : 0000h / 0
+Word59 Is Sanitize Feature Supported                : False
+Write Buffer Command Supported                      : False
+Read Buffer Command Supported                       : False
+Download Microcode Supported                        : INVALID MASK
+Is Device Initiated Power Management Supported      : False
+Is Host Initiated Power Management Supported        : False
+
+
+SMART Attribute Config Data Entry
+
+Version Number          = 00h/  0
+Customer Version Number = 00h/  0
+DST Collection Capacity Bit Control = 00h/  0
+
+Index  ExtNum   IntNum   Threshold   Flag
+=========================================
+00     00h/  0  00h/  0  00h/  0  00h/  0
+01     00h/  0  00h/  0  00h/  0  00h/  0
+02     00h/  0  00h/  0  00h/  0  00h/  0
+03     00h/  0  00h/  0  00h/  0  00h/  0
+04     00h/  0  00h/  0  00h/  0  00h/  0
+05     00h/  0  00h/  0  00h/  0  00h/  0
+06     00h/  0  00h/  0  00h/  0  00h/  0
+07     00h/  0  00h/  0  00h/  0  00h/  0
+08     00h/  0  00h/  0  00h/  0  00h/  0
+09     00h/  0  00h/  0  00h/  0  00h/  0
+10     00h/  0  00h/  0  00h/  0  00h/  0
+11     00h/  0  00h/  0  00h/  0  00h/  0
+12     00h/  0  00h/  0  00h/  0  00h/  0
+13     00h/  0  00h/  0  00h/  0  00h/  0
+14     00h/  0  00h/  0  00h/  0  00h/  0
+15     00h/  0  00h/  0  00h/  0  00h/  0
+16     00h/  0  00h/  0  00h/  0  00h/  0
+17     00h/  0  00h/  0  00h/  0  00h/  0
+18     00h/  0  00h/  0  00h/  0  00h/  0
+19     00h/  0  00h/  0  00h/  0  00h/  0
+20     00h/  0  00h/  0  00h/  0  00h/  0
+21     00h/  0  00h/  0  00h/  0  00h/  0
+22     00h/  0  00h/  0  00h/  0  00h/  0
+23     00h/  0  00h/  0  00h/  0  00h/  0
+24     00h/  0  00h/  0  00h/  0  00h/  0
+25     00h/  0  00h/  0  00h/  0  00h/  0
+26     00h/  0  00h/  0  00h/  0  00h/  0
+27     00h/  0  00h/  0  00h/  0  00h/  0
+28     00h/  0  00h/  0  00h/  0  00h/  0
+29     00h/  0  00h/  0  00h/  0  00h/  0
+=========================================
+
+   CDU Led Format
+-----------------------------------
+Activity LED Polarity         : 00h / 0
+Fault LED Polarity            : 00h / 0
+Activity LED Configuration    : 00h / 0
+Enable LED GPIO ReadOnly      : 00h / 0
+Enable LED GPIO SecureErase   : 00h / 0
+
+   CDU Customer ID
+-----------------------------------
+Main Cusomter ID   : 7B000000
+Sub Customer ID    : 0
+Configuration ID   : 25717
+
+   CDU Manufacturer ID
+-----------------------------------
+Manufacture Id  : 00h/ 0
+
+   CDU Super Cap
+-----------------------------------
+Super Cap Test Hours                    : 00h / 0
+Super Cap Test Discharge TimeOut (ms)   : 00h / 0
+Super Cap Test Enable                   : 00h / 0
+Write Speed Limit Mbps                  : 00h / 0
+
+   CDU Tempererature Sensor Data
+-----------------------------------
+Device Id                     : 00h / 0
+Device Address                : 00h / 0
+Max Threshold Level Mt1       : Invalid Data [00h]
+Max Threshold Level Mt2       : Invalid Data [00h]
+Min Threshold Lt1             : Invalid Data [00h]
+Max Threshold Behavior Mt1b   : 00h / 0
+Max Threshold Behavior Mt2b   : 00h / 0
+Min Threshold Behavior Lt1b   : 00h / 0
+Max Threshold Return Mtr1     : Invalid Data [00h]
+
+   CDU Tempererature Sensor Data
+-----------------------------------
+Device Id                     : 00h / 0
+Device Address                : 00h / 0
+Max Threshold Level Mt1       : Invalid Data [00h]
+Max Threshold Level Mt2       : Invalid Data [00h]
+Min Threshold Lt1             : Invalid Data [00h]
+Max Threshold Behavior Mt1b   : 00h / 0
+Max Threshold Behavior Mt2b   : 00h / 0
+Min Threshold Behavior Lt1b   : 00h / 0
+Max Threshold Return Mtr1     : Invalid Data [00h]
+
+   CDU Security Erase Behavior
+-----------------------------------
+Security Erase Behavior              : 00h / 0
+GPIO Trigger Erase Behavior          : 00h / 0
+Enhanced Security Erase Behavior     : 00h / 0
+Overwrite pattern                    : 00h / 0
+Allowed Flag for Enhanced Security   : 00h / 0
+
+   CDU Panic Options
+-----------------------------------
+Drive Panic Lock Settings                   : 00h / 0
+PFail Watchdog TimeOut Enabled              : 00h / 0
+Enable/disable warm reboot on panic         : 00h / 0
+PFail Timeout Value in ms(Enterprise only)  : 00h/ 0
+
+   CDU SATA Command Behavior
+-----------------------------------
+Flush Cache On Checkpoint                 : 00h / 0
+ATA Security Feature                      : 00h / 0
+Spread Spectrum Clocking                  : 00h / 0
+SataLink Handling On Reboot               : 00h / 0
+Sig Fis Delay                             : 00h / 0
+Aborts Unlock Attempts within 2 Seconds   : 00h / 0
+SecErase Prepare And Erase Unit Behavior  : 00h / 0
+Smart Read Log Ext behavior with LBA=0    : 00h / 0
+Trim timer abort enable/disable           : 00h / 0
+SSP controlled Security State Behavior    : 00h / 0
+ResetHPAStateOnComreset                   : 00h / 0
+
+   CDU Drive End Of Life Behavior
+-----------------------------------
+Enable/disable DEOL feature   : 00h / 0
+Threshold Type DEOL1          : 00h / 0
+Threshold Percentage DEOL1    : 00h / 0
+Threshold Behavior DEOL1      : 00h / 0
+Threshold Type DEOL2          : 00h / 0
+Threshold Percentage DEOL2    : 00h / 0
+Threshold Behavior DEOL2      : 00h / 0
+
+   CDU SATA PHY Settings
+-----------------------------------
+SATA PHY Enabled   : 00h/ 0
+entires data1      : 00h/ 0
+entires address1   : 00h/ 0
+entires data2      : 00h/ 0
+entires address2   : 00h/ 0
+entires data3      : 00h/ 0
+entires address3   : 00h/ 0
+entires data4      : 00h/ 0
+entires address4   : 00h/ 0
+entires data5      : 00h/ 0
+entires address5   : 00h/ 0
+entires data6      : 00h/ 0
+entires address6   : 00h/ 0
+entires data7      : 00h/ 0
+entires address7   : 00h/ 0
+entires data8      : 00h/ 0
+entires address8   : 00h/ 0
+entires data9      : 00h/ 0
+entires address9   : 00h/ 0
+entires data10     : 00h/ 0
+entires address10  : 00h/ 0
+entires data11     : 00h/ 0
+entires address11  : 00h/ 0
+entires data12     : 00h/ 0
+entires address12  : 00h/ 0
+
+   CDU Max LBA Setting 0
+-----------------------------------
+MaxLbaEntryCount                        : 01h / 1
+Entry[0] Sub Sector Size                : 0200h/ 512
+Entry[0] Pattern Size                   : 00h/ 0
+Entry[0] Sub Sector Pattern Per Sector  : 01h/ 1
+Entry[0] Max LBA Count                  : 37E436B0h/ 937703088
+
+   CDU Life Throttle Injection
+-----------------------------------
+Real Accumulated PE Count Left      : 00000000h/ 0
+Real Warranty Time Left in Seconds  : 00000000h/ 0
+Drive Warranty Time in Seconds      : 00000000h/ 0
+
+   CDU PPRO Debug Block
+-----------------------------------
+SCT Flags Write Cache                                                : 00h / 0
+SCT Flags In Order Write                                             : 00h / 0
+Deterministic Read Zero Trim                                         : 00h / 0
+Max SATA Link Rate                                                   : 00h / 0
+Error Handling Flags ID Not Found                                    : 00h / 0
+Error Handling Flags Interface CRC Error For PIO                     : 00h / 0
+Error Handling Flags Interface CRC Error For DMA                     : 00h / 0
+Error Handling Flags Interface CRC Error For NCQ                     : 00h / 0
+Error Handling Flags Uncorrectable Error                             : 00h / 0
+Error Handling Flags Seek Complete In Error Status                   : 00h / 0
+Error Handling Flags Set Multiple Handling                           : 00h / 0
+SATA BIST Flags Dual Align BIST Feature                              : 00h / 0
+SATA BIST Flags No BIST Link Drop Feature                            : 00h / 0
+SATA BIST Flags BIST COMRESET handling                               : 00h / 0
+SATA Misc Flags SATA Cont Repeat Feature                             : 00h / 0
+SATA Misc Flags OOB Character Select                                 : 00h / 0
+SATA Misc Flags SATA DMA                                             : 00h / 0
+SATA Misc Flags Rate Counter Print                                   : 00h / 0
+SATA Misc Flags Power Throttling                                     : 00h / 0
+SATA Misc Flags Write Uncorrectable 0x55 Handling                    : 00h / 0
+SATA Misc Flags Immediate Firmware Revision Update                   : 00h / 0
+SATA Misc Flags ACS2 Support                                         : 00h / 0
+Max Power Level                                                      : 00h / 0
+Average Power Level                                                  : 00h / 0
+Max NCQ Tags                                                         : 00h / 0
+Max NCQ Status Aggregation Level                                     : 00h / 0
+FlashManager Configuration Flags                                     : 00h / 0
+Aggressive Speed Negotiation                                         : 00h / 0
+PHY Amplitude Override                                               : 00h / 0
+PHY Amplitude Value                                                  : 00h / 0
+PHY Slew Rate Overide                                                : 00h / 0
+PHY Slew Rate Gen 3 Slew Rate                                        : 00h / 0
+PHY Slew Rate Gen 2 Slew Rate                                        : 00h / 0
+PHY Slew Rate Gen 1 Slew Rate                                        : 00h / 0
+PHY Spread Spectrum Clocking                                         : 00h / 0
+Read Scrub Enable                                                    : 00h / 0
+Dynamic Read Scrub-Range1 End                                        : 00h / 0
+Dynamic Read Scrub-Range1 Read Scrub Rate                            : 00h / 0
+Dynamic Read Scrub-Range2 End                                        : 00h / 0
+Dynamic Read Scrub-Range2 Read Scrub Rate                            : 00h / 0
+Dynamic Read Scrub-Range3 End                                        : 00h / 0
+Dynamic Read Scrub-Range3 Read Scrub Rate                            : 00h / 0
+Dynamic Read Scrub-Range4 End                                        : 00h / 0
+Dynamic Read Scrub-Range4 Read Scrub Rate                            : 00h / 0
+DOWNLOAD MICROCODE DMA is supported?                                 : 00h / 0
+SET MAX SET PASSWORD DMA and SET MAX UNLOCK DMA supported            : 00h / 0
+Host Protected Area Feature supported                                : 00h / 0
+Power-Up in StandBy Supported Word 86                                : 00h / 0
+Advanced Power Managment supported                                   : 00h / 0
+Write Read Verify Supported                                          : 00h / 0
+Read Long With Or Without Retry                                      : 00h / 0
+Read Sectors Without Retry                                           : 00h / 0
+Write DMA Without Retry                                              : 00h / 0
+Write Long With Or Without Retry                                     : 00h / 0
+Sct Write Same Action                                                : 00h / 0
+Sanitize Device                                                      : 00h / 0
+Rdd1 Optimization enable or disable                                  : 00h / 0
+Read Buffer Command Supported                                        : 00h / 0
+Write Buffer Command Supported                                       : 00h / 0
+READ BUFFER DMA is supported                                         : 00h / 0
+WRITE BUFFER DMA is supported                                        : 00h / 0
+Request Sense Data Ext                                               : 00h / 0
+Power Throttling After Unsafe shutdown                               : 00h / 0
+Abort ReadNativeMaxAddress with IDFY indicate HPA disabled           : 00h / 0
+WRITE DMA FUA EXT and WRITE MULTIPLE FUA EXT                         : 00h / 0
+Read Log DMA Ext is equivalent to Read Log Ext                       : 00h / 0
+IDLE IMMEDIATE command with UNLOAD FEATURE supported                 : 00h / 0
+Reject FW update if ATA password is set                              : 00h / 0
+Abort security set password if master password is set to 00h or FFh  : 00h / 0
+SMART Atuo Offine Support is set                                     : 00h / 0
+SMART Atuo Offine with short self test time                          : 00h / 0
+SMART Atuo Offine with extended self test time                       : 00h / 0
+SMART Atuo Offine with convey self test time                         : 00h / 0
+Drive run time threshold to reboot on panic                          : 00h / 0
+PHY Setting                                                          : 00h / 0
+Set SMART Offline Automatic Timer                                    : 00h / 0
+Customer Feature Flags 5                                             : 00h / 0
+Read Scrub ECC Error Threshold                                       : 00h / 0
+Do not transition security state on COMRESET                         : 00h / 0
+
+   CDU PPRO Flags
+-----------------------------------
+PPRO Enable SATA Status Coalescing                  : 00h / 0
+PPRO Compressible Data Performance Tuning Optionn   : 00h / 0
+PPRO Serial Output Control                          : 02h / 2
+
+   CDU PPRO Power Management
+-----------------------------------
+Active Power State Mode                     : 00h / 0
+Active DIPM Behavior                        : 00h / 0
+Active HIPM Behavior                        : 00h / 0
+Auto Idle Enable                            : 00h / 0
+Idle Power State Mode                       : 00h / 0
+Idle DIPM Behavior                          : 00h / 0
+Idle HIPM Behavior                          : 00h / 0
+Standby Power State Mode                    : 00h / 0
+Standby DIPM Behavior                       : 00h / 0
+Standby HIPM Behavior                       : 00h / 0
+Sleep Power State Mode                      : 00h / 0
+Sleep DIPM Behavior                         : 00h / 0
+Sleep HIPM Behavior                         : 00h / 0
+Auto Slumber Timer (x10 ms)                 : 00h / 0
+CMU Power Down Behavior                     : 00h / 0
+Enable/Disable Hipm and DIPM (B02 only)     : 00h / 0
+Auto Idle Timer One (ms)                    : 00h / 0
+Auto Idle Timer Two (Python only in secs.)  : 00h / 0
+PPro Power Management Rev                   : 00h / 0
+
+   CDU Temperature Intervals
+-----------------------------------
+Poll Temperature Interval   : Invalid Data [00h]
+Log Temperature Interval    : Invalid Data [00h]
+
+   CDU OOB Enable/Disable
+-----------------------------------
+OOB Control   : 00h / 0
+
+   CDU DLC Enable/Disable
+-----------------------------------
+DLC Control   : 00h / 0
+
+   CDU Ncq Trim Enable/Disable
+-----------------------------------
+Ncq Trim Control   : 00h / 0
+
+   CDU COL Enable/Disable
+-----------------------------------
+COL Control   : 00h / 0
+
+   CDU CLF Enable/Disable
+-----------------------------------
+CLF Control   : 00h / 0
+
+   CDU Recycler Rate Limit Method
+-----------------------------------
+Recycler Rate Limit   : 00h / 0
+
+   CDU Misc Customer Features
+-----------------------------------
+Misc Customer Features   : 00h / 0
+
+
+---------------------------
+Model Number         : SandForce[745502]                       
+Firmware Revision    : EA4ABBF0
+Serial Number        : 962025013012        
+Number of Sectors    : 937703088 (0x37E436B0)
+Sector Size          : 512
+Capacity (GB)        : 480.104
+-------------------
+-------------------
+   CDU Identify Device Data
+-----------------------------------
+Model Number                                        :                                         
+Firmware Revision                                   : 
+Serial Number                                       : 962025013012        
+World Wide Name                                     : 500232D000000001
+World Wide Name Extension                           : 
+Additional Product Identifier                       : 
+Current Media Serial Number                         :                                                             
+Vendor Specific                                     : 
+Time For Normal Security Erase (minutes)            : 0000h / 0
+Time For Enhanced Security Erase (minutes)          : 0000h / 0
+Is Sanitize Feature Supported                       : False
+Is Crypto Scramble Ext Supported                    : False
+Is Overwrite Ext Supported                          : False
+Is Block Erase Ext Supported                        : False
+Is Write UnCorrectable Ext Command Supported        : False
+Is Write UnCorrectable ExtCommand Supported 120     : False
+Is SCT Write Same Command Supported                 : False
+Is SCT Error Recovery Command Supported             : False
+Is SCT Feature Control Command Supported            : False
+Logical Sectors Per Physical Sector                 : 0000h / 0
+Device From Factor Size                             : 0000h / 0
+Is NCQ Priority Info Supported                      : False
+Word 235 Maximum 512 Block per Micro Code Command   : 0000h / 0
+Word59 Is Sanitize Feature Supported                : False
+Write Buffer Command Supported                      : False
+Read Buffer Command Supported                       : False
+Download Microcode Supported                        : INVALID MASK
+Is Device Initiated Power Management Supported      : False
+Is Host Initiated Power Management Supported        : False
+
+
+SMART Attribute Config Data Entry
+
+Version Number          = 00h/  0
+Customer Version Number = 00h/  0
+DST Collection Capacity Bit Control = 00h/  0
+
+Index  ExtNum   IntNum   Threshold   Flag
+=========================================
+00     00h/  0  00h/  0  00h/  0  00h/  0
+01     00h/  0  00h/  0  00h/  0  00h/  0
+02     00h/  0  00h/  0  00h/  0  00h/  0
+03     00h/  0  00h/  0  00h/  0  00h/  0
+04     00h/  0  00h/  0  00h/  0  00h/  0
+05     00h/  0  00h/  0  00h/  0  00h/  0
+06     00h/  0  00h/  0  00h/  0  00h/  0
+07     00h/  0  00h/  0  00h/  0  00h/  0
+08     00h/  0  00h/  0  00h/  0  00h/  0
+09     00h/  0  00h/  0  00h/  0  00h/  0
+10     00h/  0  00h/  0  00h/  0  00h/  0
+11     00h/  0  00h/  0  00h/  0  00h/  0
+12     00h/  0  00h/  0  00h/  0  00h/  0
+13     00h/  0  00h/  0  00h/  0  00h/  0
+14     00h/  0  00h/  0  00h/  0  00h/  0
+15     00h/  0  00h/  0  00h/  0  00h/  0
+16     00h/  0  00h/  0  00h/  0  00h/  0
+17     00h/  0  00h/  0  00h/  0  00h/  0
+18     00h/  0  00h/  0  00h/  0  00h/  0
+19     00h/  0  00h/  0  00h/  0  00h/  0
+20     00h/  0  00h/  0  00h/  0  00h/  0
+21     00h/  0  00h/  0  00h/  0  00h/  0
+22     00h/  0  00h/  0  00h/  0  00h/  0
+23     00h/  0  00h/  0  00h/  0  00h/  0
+24     00h/  0  00h/  0  00h/  0  00h/  0
+25     00h/  0  00h/  0  00h/  0  00h/  0
+26     00h/  0  00h/  0  00h/  0  00h/  0
+27     00h/  0  00h/  0  00h/  0  00h/  0
+28     00h/  0  00h/  0  00h/  0  00h/  0
+29     00h/  0  00h/  0  00h/  0  00h/  0
+=========================================
+
+   CDU Led Format
+-----------------------------------
+Activity LED Polarity         : 00h / 0
+Fault LED Polarity            : 00h / 0
+Activity LED Configuration    : 00h / 0
+Enable LED GPIO ReadOnly      : 00h / 0
+Enable LED GPIO SecureErase   : 00h / 0
+
+   CDU Customer ID
+-----------------------------------
+Main Cusomter ID   : 7B000000
+Sub Customer ID    : 0
+Configuration ID   : 25717
+
+   CDU Manufacturer ID
+-----------------------------------
+Manufacture Id  : 00h/ 0
+
+   CDU Super Cap
+-----------------------------------
+Super Cap Test Hours                    : 00h / 0
+Super Cap Test Discharge TimeOut (ms)   : 00h / 0
+Super Cap Test Enable                   : 00h / 0
+Write Speed Limit Mbps                  : 00h / 0
+
+   CDU Tempererature Sensor Data
+-----------------------------------
+Device Id                     : 00h / 0
+Device Address                : 00h / 0
+Max Threshold Level Mt1       : Invalid Data [00h]
+Max Threshold Level Mt2       : Invalid Data [00h]
+Min Threshold Lt1             : Invalid Data [00h]
+Max Threshold Behavior Mt1b   : 00h / 0
+Max Threshold Behavior Mt2b   : 00h / 0
+Min Threshold Behavior Lt1b   : 00h / 0
+Max Threshold Return Mtr1     : Invalid Data [00h]
+
+   CDU Tempererature Sensor Data
+-----------------------------------
+Device Id                     : 00h / 0
+Device Address                : 00h / 0
+Max Threshold Level Mt1       : Invalid Data [00h]
+Max Threshold Level Mt2       : Invalid Data [00h]
+Min Threshold Lt1             : Invalid Data [00h]
+Max Threshold Behavior Mt1b   : 00h / 0
+Max Threshold Behavior Mt2b   : 00h / 0
+Min Threshold Behavior Lt1b   : 00h / 0
+Max Threshold Return Mtr1     : Invalid Data [00h]
+
+   CDU Security Erase Behavior
+-----------------------------------
+Security Erase Behavior              : 00h / 0
+GPIO Trigger Erase Behavior          : 00h / 0
+Enhanced Security Erase Behavior     : 00h / 0
+Overwrite pattern                    : 00h / 0
+Allowed Flag for Enhanced Security   : 00h / 0
+
+   CDU Panic Options
+-----------------------------------
+Drive Panic Lock Settings                   : 00h / 0
+PFail Watchdog TimeOut Enabled              : 00h / 0
+Enable/disable warm reboot on panic         : 00h / 0
+PFail Timeout Value in ms(Enterprise only)  : 00h/ 0
+
+   CDU SATA Command Behavior
+-----------------------------------
+Flush Cache On Checkpoint                 : 00h / 0
+ATA Security Feature                      : 00h / 0
+Spread Spectrum Clocking                  : 00h / 0
+SataLink Handling On Reboot               : 00h / 0
+Sig Fis Delay                             : 00h / 0
+Aborts Unlock Attempts within 2 Seconds   : 00h / 0
+SecErase Prepare And Erase Unit Behavior  : 00h / 0
+Smart Read Log Ext behavior with LBA=0    : 00h / 0
+Trim timer abort enable/disable           : 00h / 0
+SSP controlled Security State Behavior    : 00h / 0
+ResetHPAStateOnComreset                   : 00h / 0
+
+   CDU Drive End Of Life Behavior
+-----------------------------------
+Enable/disable DEOL feature   : 00h / 0
+Threshold Type DEOL1          : 00h / 0
+Threshold Percentage DEOL1    : 00h / 0
+Threshold Behavior DEOL1      : 00h / 0
+Threshold Type DEOL2          : 00h / 0
+Threshold Percentage DEOL2    : 00h / 0
+Threshold Behavior DEOL2      : 00h / 0
+
+   CDU SATA PHY Settings
+-----------------------------------
+SATA PHY Enabled   : 00h/ 0
+entires data1      : 00h/ 0
+entires address1   : 00h/ 0
+entires data2      : 00h/ 0
+entires address2   : 00h/ 0
+entires data3      : 00h/ 0
+entires address3   : 00h/ 0
+entires data4      : 00h/ 0
+entires address4   : 00h/ 0
+entires data5      : 00h/ 0
+entires address5   : 00h/ 0
+entires data6      : 00h/ 0
+entires address6   : 00h/ 0
+entires data7      : 00h/ 0
+entires address7   : 00h/ 0
+entires data8      : 00h/ 0
+entires address8   : 00h/ 0
+entires data9      : 00h/ 0
+entires address9   : 00h/ 0
+entires data10     : 00h/ 0
+entires address10  : 00h/ 0
+entires data11     : 00h/ 0
+entires address11  : 00h/ 0
+entires data12     : 00h/ 0
+entires address12  : 00h/ 0
+
+   CDU Max LBA Setting 0
+-----------------------------------
+MaxLbaEntryCount                        : 01h / 1
+Entry[0] Sub Sector Size                : 0200h/ 512
+Entry[0] Pattern Size                   : 00h/ 0
+Entry[0] Sub Sector Pattern Per Sector  : 01h/ 1
+Entry[0] Max LBA Count                  : 37E436B0h/ 937703088
+
+   CDU Life Throttle Injection
+-----------------------------------
+Real Accumulated PE Count Left      : 00000000h/ 0
+Real Warranty Time Left in Seconds  : 00000000h/ 0
+Drive Warranty Time in Seconds      : 00000000h/ 0
+
+   CDU PPRO Debug Block
+-----------------------------------
+SCT Flags Write Cache                                                : 00h / 0
+SCT Flags In Order Write                                             : 00h / 0
+Deterministic Read Zero Trim                                         : 00h / 0
+Max SATA Link Rate                                                   : 00h / 0
+Error Handling Flags ID Not Found                                    : 00h / 0
+Error Handling Flags Interface CRC Error For PIO                     : 00h / 0
+Error Handling Flags Interface CRC Error For DMA                     : 00h / 0
+Error Handling Flags Interface CRC Error For NCQ                     : 00h / 0
+Error Handling Flags Uncorrectable Error                             : 00h / 0
+Error Handling Flags Seek Complete In Error Status                   : 00h / 0
+Error Handling Flags Set Multiple Handling                           : 00h / 0
+SATA BIST Flags Dual Align BIST Feature                              : 00h / 0
+SATA BIST Flags No BIST Link Drop Feature                            : 00h / 0
+SATA BIST Flags BIST COMRESET handling                               : 00h / 0
+SATA Misc Flags SATA Cont Repeat Feature                             : 00h / 0
+SATA Misc Flags OOB Character Select                                 : 00h / 0
+SATA Misc Flags SATA DMA                                             : 00h / 0
+SATA Misc Flags Rate Counter Print                                   : 00h / 0
+SATA Misc Flags Power Throttling                                     : 00h / 0
+SATA Misc Flags Write Uncorrectable 0x55 Handling                    : 00h / 0
+SATA Misc Flags Immediate Firmware Revision Update                   : 00h / 0
+SATA Misc Flags ACS2 Support                                         : 00h / 0
+Max Power Level                                                      : 00h / 0
+Average Power Level                                                  : 00h / 0
+Max NCQ Tags                                                         : 00h / 0
+Max NCQ Status Aggregation Level                                     : 00h / 0
+FlashManager Configuration Flags                                     : 00h / 0
+Aggressive Speed Negotiation                                         : 00h / 0
+PHY Amplitude Override                                               : 00h / 0
+PHY Amplitude Value                                                  : 00h / 0
+PHY Slew Rate Overide                                                : 00h / 0
+PHY Slew Rate Gen 3 Slew Rate                                        : 00h / 0
+PHY Slew Rate Gen 2 Slew Rate                                        : 00h / 0
+PHY Slew Rate Gen 1 Slew Rate                                        : 00h / 0
+PHY Spread Spectrum Clocking                                         : 00h / 0
+Read Scrub Enable                                                    : 00h / 0
+Dynamic Read Scrub-Range1 End                                        : 00h / 0
+Dynamic Read Scrub-Range1 Read Scrub Rate                            : 00h / 0
+Dynamic Read Scrub-Range2 End                                        : 00h / 0
+Dynamic Read Scrub-Range2 Read Scrub Rate                            : 00h / 0
+Dynamic Read Scrub-Range3 End                                        : 00h / 0
+Dynamic Read Scrub-Range3 Read Scrub Rate                            : 00h / 0
+Dynamic Read Scrub-Range4 End                                        : 00h / 0
+Dynamic Read Scrub-Range4 Read Scrub Rate                            : 00h / 0
+DOWNLOAD MICROCODE DMA is supported?                                 : 00h / 0
+SET MAX SET PASSWORD DMA and SET MAX UNLOCK DMA supported            : 00h / 0
+Host Protected Area Feature supported                                : 00h / 0
+Power-Up in StandBy Supported Word 86                                : 00h / 0
+Advanced Power Managment supported                                   : 00h / 0
+Write Read Verify Supported                                          : 00h / 0
+Read Long With Or Without Retry                                      : 00h / 0
+Read Sectors Without Retry                                           : 00h / 0
+Write DMA Without Retry                                              : 00h / 0
+Write Long With Or Without Retry                                     : 00h / 0
+Sct Write Same Action                                                : 00h / 0
+Sanitize Device                                                      : 00h / 0
+Rdd1 Optimization enable or disable                                  : 00h / 0
+Read Buffer Command Supported                                        : 00h / 0
+Write Buffer Command Supported                                       : 00h / 0
+READ BUFFER DMA is supported                                         : 00h / 0
+WRITE BUFFER DMA is supported                                        : 00h / 0
+Request Sense Data Ext                                               : 00h / 0
+Power Throttling After Unsafe shutdown                               : 00h / 0
+Abort ReadNativeMaxAddress with IDFY indicate HPA disabled           : 00h / 0
+WRITE DMA FUA EXT and WRITE MULTIPLE FUA EXT                         : 00h / 0
+Read Log DMA Ext is equivalent to Read Log Ext                       : 00h / 0
+IDLE IMMEDIATE command with UNLOAD FEATURE supported                 : 00h / 0
+Reject FW update if ATA password is set                              : 00h / 0
+Abort security set password if master password is set to 00h or FFh  : 00h / 0
+SMART Atuo Offine Support is set                                     : 00h / 0
+SMART Atuo Offine with short self test time                          : 00h / 0
+SMART Atuo Offine with extended self test time                       : 00h / 0
+SMART Atuo Offine with convey self test time                         : 00h / 0
+Drive run time threshold to reboot on panic                          : 00h / 0
+PHY Setting                                                          : 00h / 0
+Set SMART Offline Automatic Timer                                    : 00h / 0
+Customer Feature Flags 5                                             : 00h / 0
+Read Scrub ECC Error Threshold                                       : 00h / 0
+Do not transition security state on COMRESET                         : 00h / 0
+
+   CDU PPRO Flags
+-----------------------------------
+PPRO Enable SATA Status Coalescing                  : 00h / 0
+PPRO Compressible Data Performance Tuning Optionn   : 00h / 0
+PPRO Serial Output Control                          : 02h / 2
+
+   CDU PPRO Power Management
+-----------------------------------
+Active Power State Mode                     : 00h / 0
+Active DIPM Behavior                        : 00h / 0
+Active HIPM Behavior                        : 00h / 0
+Auto Idle Enable                            : 00h / 0
+Idle Power State Mode                       : 00h / 0
+Idle DIPM Behavior                          : 00h / 0
+Idle HIPM Behavior                          : 00h / 0
+Standby Power State Mode                    : 00h / 0
+Standby DIPM Behavior                       : 00h / 0
+Standby HIPM Behavior                       : 00h / 0
+Sleep Power State Mode                      : 00h / 0
+Sleep DIPM Behavior                         : 00h / 0
+Sleep HIPM Behavior                         : 00h / 0
+Auto Slumber Timer (x10 ms)                 : 00h / 0
+CMU Power Down Behavior                     : 00h / 0
+Enable/Disable Hipm and DIPM (B02 only)     : 00h / 0
+Auto Idle Timer One (ms)                    : 00h / 0
+Auto Idle Timer Two (Python only in secs.)  : 00h / 0
+PPro Power Management Rev                   : 00h / 0
+
+   CDU Temperature Intervals
+-----------------------------------
+Poll Temperature Interval   : Invalid Data [00h]
+Log Temperature Interval    : Invalid Data [00h]
+
+   CDU OOB Enable/Disable
+-----------------------------------
+OOB Control   : 00h / 0
+
+   CDU DLC Enable/Disable
+-----------------------------------
+DLC Control   : 00h / 0
+
+   CDU Ncq Trim Enable/Disable
+-----------------------------------
+Ncq Trim Control   : 00h / 0
+
+   CDU COL Enable/Disable
+-----------------------------------
+COL Control   : 00h / 0
+
+   CDU CLF Enable/Disable
+-----------------------------------
+CLF Control   : 00h / 0
+
+   CDU Recycler Rate Limit Method
+-----------------------------------
+Recycler Rate Limit   : 00h / 0
+
+   CDU Misc Customer Features
+-----------------------------------
+Misc Customer Features   : 00h / 0
+
+
+
+Log file moved to '/home/yoxu/log/ConfigDriveUnique_yoxu-ssdt_2014-02-12_04.44.04.log'.
+
+Script has completed with exit code 0x00000000 (0)
+
