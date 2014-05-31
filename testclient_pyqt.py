@@ -2,7 +2,8 @@
 import sys
 from PyQt4 import QtGui, QtCore
 import paramiko
-import time,os,threading
+import time,os,threading,traceback
+
 
 class Window( QtGui.QWidget ):
     def __init__( self ):
@@ -146,28 +147,7 @@ class Window( QtGui.QWidget ):
     def OnInputCmd(self):
         self.TestClientInput3()
 
-    def work(self, hostname, cmd):
-        self.__CtlConnect(hostname)
-        if cmd is None:
-            cmd = str(self.input.toPlainText())
-        try:
-            print cmd + " is going to be issued"
-            stdin,stdout,stderr=sshCtl.exec_command(cmd)
-            content = stdout.read()
-            output.write(content)
-            output.flush()
-            os.fsync(output.fileno())
-        except:
-            content_err = stderr.read()
-            if content_err is not None:
-                output.write(content_err)
-                output.flush()
-                os.fsync(output.fileno())
-            self.test_message.append(content_err)
-        self.test_message.append(cmd + " completed")
-        sshCtl.close()
-
-    def work2(self, hostname, cmd):
+    def work2(self, hostname, cmd, output):
         #sshCtl = None
         sshCtl = self.__CtlConnect( hostname )
 
@@ -178,65 +158,82 @@ class Window( QtGui.QWidget ):
         if cmd is None:
             cmd = str(self.input.toPlainText())
         try:
-            print cmd + " is going to be issued on " + hostname
+            #print cmd + " is going to be issued on " + hostname
             sshChannel.exec_command(cmd)
-            num = 0
+
             while not sshChannel.exit_status_ready():
                 buf = ''
                 while sshChannel.recv_ready():
+                    #sshChannel.recv(1024), 
+
                     #print sshChannel.recv(1024),  # use comma(,) to avoid additional new line
-                    output.write( "******************"+str(num)+"****************" )
+
                     buf += sshChannel.recv(1024)
-                    print buf
+
+                    #self.test_message.append(buf)
+
+                    #print buf
+
                     output.write( buf,)
-                    output.flush()
-                    os.fsync(output.fileno())
-                    num += 1
-                time.sleep(1)
+                    #output.flush()
+                    #os.fsync(output.fileno())
+                    # num += 1
+                time.sleep(2)
 
             # remember to get everything left when cmd returns
             buf = 'The message after exit status ready:\n'
-            num1 = 0
+
             while sshChannel.recv_ready():
-                output.write( "******************"+str(num1)+"****************" ) 
+
                 buf += sshChannel.recv(1024)
-                print buf
-                num1 += 1
+
             output.write( buf,)
-            output.flush()
-            os.fsync(output.fileno())
+            #output.flush()
+            #os.fsync(output.fileno())
 
             output.write("Exit status: %d" % sshChannel.recv_exit_status())
             output.flush()
-            os.fsync(output.fileno())
+            #os.fsync(output.fileno())
             #self.test_message.append(buf+'\n')
-        except:
+        except Exception,err:
             #pass
-            err = 'Timeout. Should not be raised because SSH connection is alive.'
-            print err
-            self.test_message.append(err)
+            errstring = traceback.format_exc()
+            #print errstring
+            #err = 'Timeout. Should not be raised because SSH connection is alive.'
+            #print err
+            self.test_message.append(errstring)
         self.test_message.append(cmd + " completed on " + hostname)
         sshChannel.close() 
         sshCtl.close()
+        output.close()
 
 
     def TestClientInput3(self, cmd = None):
-        output.write("%s: Check the PARAMIKO LINK First\n" % time.ctime())
-        output.flush()
-        os.fsync(output.fileno())
+
+        # output.write("%s: Check the PARAMIKO LINK First\n" % time.ctime())
+        # output.flush()
+        # os.fsync(output.fileno())
+
         self.test_message.clear()
-        #threads = []
+        threads = []
+        
         for i in xrange(len(self.list_machine)):
             if self.cb[i].isChecked():
-                hostname = self.list_machine[i]
-                self.work2(hostname,cmd)
-            #     work = eval(self.work(self,hostname))
-            #     t = threading.Thread(target=work, args=(hostname))
-            #     t.daemon = True
-            #     t.start()
-            #     threads.append(t)
-            # for t in threads:
-            #     t.join()
+                try:
+                    hostname = self.list_machine[i]
+                    output = open(''+hostname+'.log' ,'w')
+                    # self.work2(hostname, cmd, output)
+                    t = threading.Thread(target=(self.work2), args=(hostname,cmd,output))
+                    t.daemon = True
+                    t.start()
+                    threads.append(t)
+                except Exception, err:
+                    errstring = traceback.format_exc()
+                    self.test_message.append(errstring)
+        for t in threads:
+            t.join()
+
+        
 
     def TestClientStart(self):
         for i in xrange(len(self.list_machine)):
@@ -312,7 +309,8 @@ class Window( QtGui.QWidget ):
             raise Exception('Connection to SSDT machine failed.')
         return sshCtl
 
-output = open('1.log' ,'w')
+
+
 
 app = QtGui.QApplication( sys.argv )
 win = Window()
