@@ -45,7 +45,8 @@ class Window( QtGui.QWidget ):
         'lt-ssdt27-13.lsi.com',
         'lt-ssdt27-14.lsi.com',
         'lt-ssdt27-15.lsi.com',
-        '135.24.22.205',]
+        '135.24.22.205',
+        'lt-ssdt26-08.lsi.com',]
         self.cb = []
 
         for i in self.list_machine:
@@ -72,6 +73,14 @@ class Window( QtGui.QWidget ):
         # self.button4 = QtGui.QPushButton( "input" )
         # vbox_right.addWidget( self.button4 )
         # self.connect( self.button4, QtCore.SIGNAL( 'clicked()' ), self.OnInput)
+
+        self.pushbutton = QtGui.QPushButton('choose')
+        menu = QtGui.QMenu()
+        menu.addAction('uncheckall', self.uncheckall)
+        menu.addAction('choose client', self.choosegroup1)
+        menu.addAction('choose enteprise', self.choosegroup2)
+        self.pushbutton.setMenu(menu)
+        vbox_right.addWidget( self.pushbutton )
 
         self.button5 = QtGui.QPushButton( "IDFY" )
         vbox_right.addWidget( self.button5 )
@@ -113,6 +122,42 @@ class Window( QtGui.QWidget ):
 
         self.setLayout( hbox )
 
+    def choosegroup1(self):
+        self.choosegroup1 = [
+        'sh-racka02.lsi.com',
+        'sh-racka03.lsi.com',
+        'sh-racka11.lsi.com',
+        'sh-racka12.lsi.com',
+        'sh-racka13.lsi.com',
+        'sh-racka14.lsi.com', 
+        'lt-ssdt27-01.lsi.com',
+        'lt-ssdt27-02.lsi.com',
+        'lt-ssdt27-03.lsi.com',
+        'lt-ssdt27-04.lsi.com',
+        'lt-ssdt27-05.lsi.com',
+        'lt-ssdt27-06.lsi.com',
+        'lt-ssdt27-07.lsi.com',
+        'lt-ssdt27-08.lsi.com',
+        'lt-ssdt27-09.lsi.com',
+        'lt-ssdt27-10.lsi.com',
+        'lt-ssdt27-11.lsi.com',
+        'lt-ssdt27-12.lsi.com',
+        'lt-ssdt27-13.lsi.com',
+        'lt-ssdt27-14.lsi.com',
+        'lt-ssdt27-15.lsi.com',
+        ]
+        for i in xrange(len(self.list_machine)):
+            if self.list_machine[i] in self.choosegroup1:
+                self.cb[i].toggle()
+                    
+    def choosegroup2(self):
+        pass
+
+    def uncheckall(self):
+        for i in xrange(len(self.list_machine)):
+            if self.cb[i].isChecked():
+                self.cb[i].toggle()
+
     def OnStart(self):
         self.TestClientStart()
 
@@ -132,10 +177,10 @@ class Window( QtGui.QWidget ):
         self.TestClientInput3("StandbyImmediate.py")
 
     def OnPwOn(self):
-        self.TestClientInput3("PowerOn.py --port=1 --force")
+        self.TestClientInput3("PowerOn.py --force")
 
     def OnPwOff(self):
-        self.TestClientInput3("PowerOff.py --port=1 --force")
+        self.TestClientInput3("PowerOff.py --force")
 
     def OnSE(self):
         self.TestClientInput3("SecurityErase.py --mode=1")
@@ -190,19 +235,24 @@ class Window( QtGui.QWidget ):
             output.write( buf,)
             #output.flush()
             #os.fsync(output.fileno())
-
-            output.write("Exit status: %d" % sshChannel.recv_exit_status())
-            output.flush()
+            if int(sshChannel.recv_exit_status()) == 0:
+                output.write("Exit status: %d" % sshChannel.recv_exit_status())
+                output.flush()
+            else:
+                cur_path = os.path.dirname(__file__)
+                output_error = open(cur_path +'\\'+ 'error' +'.log' ,'w')
+                output_error.write("%s encounter error " %hostname )
+                output_error.flush()
             #os.fsync(output.fileno())
             #self.test_message.append(buf+'\n')
         except Exception,err:
             #pass
             errstring = traceback.format_exc()
-            #print errstring
+            print errstring
             #err = 'Timeout. Should not be raised because SSH connection is alive.'
             #print err
-            self.test_message.append(errstring)
-        self.test_message.append(cmd + " completed on " + hostname)
+            #self.test_message.append(errstring)
+        #self.test_message.append(cmd + " completed on " + hostname + '\n')
         sshChannel.close() 
         sshCtl.close()
         output.close()
@@ -216,23 +266,25 @@ class Window( QtGui.QWidget ):
 
         self.test_message.clear()
         threads = []
-        
-        for i in xrange(len(self.list_machine)):
-            if self.cb[i].isChecked():
-                try:
+        mutex = threading.Lock()
+        try:
+            for i in xrange(len(self.list_machine)):
+                if self.cb[i].isChecked():
                     hostname = self.list_machine[i]
-                    output = open(''+hostname+'.log' ,'w')
+                    cur_path = os.path.dirname(__file__)
+                    output = open(cur_path +'\\'+ hostname+'.log' ,'w')
                     # self.work2(hostname, cmd, output)
-                    t = threading.Thread(target=(self.work2), args=(hostname,cmd,output))
-                    t.daemon = True
-                    t.start()
-                    threads.append(t)
-                except Exception, err:
-                    errstring = traceback.format_exc()
-                    self.test_message.append(errstring)
-        for t in threads:
-            t.join()
+                    threads.append(threading.Thread(target=(self.work2), args=(hostname,cmd,output)))
 
+            for t in threads:
+                t.start()
+            for t in threads:
+                t.join()
+            print 'cmd completed'
+        except Exception, err:
+            errstring = traceback.format_exc()
+            print errstring
+            #self.test_message.append(errstring)
         
 
     def TestClientStart(self):
@@ -306,6 +358,10 @@ class Window( QtGui.QWidget ):
             sshCtl.use_sudo = True
             sshCtl.connect(hostname=host,port=ctlPort, username=ctlUser,password=ctlPasswd)
         except:
+            cur_path = os.path.dirname(__file__)
+            output_error = open(cur_path +'\\'+ 'connect_error' +'.log' ,'w')
+            output_error.write("%s connection failed " %host )
+            output_error.flush()
             raise Exception('Connection to SSDT machine failed.')
         return sshCtl
 
