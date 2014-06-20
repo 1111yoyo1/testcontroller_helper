@@ -8,7 +8,7 @@ import time,os,threading,traceback
 class Window( QtGui.QWidget ):
     def __init__( self ):
         super( Window, self ).__init__()
-        self.setWindowTitle( "hello" )
+        self.setWindowTitle( "TestClient_helper" )
         self.resize( 500, 500 )
         hbox = QtGui.QHBoxLayout()
         vbox_left = QtGui.QVBoxLayout()
@@ -46,6 +46,8 @@ class Window( QtGui.QWidget ):
         'lt-ssdt27-14.lsi.com',
         'lt-ssdt27-15.lsi.com',
         '135.24.22.205',
+        'lt-ssdt26-06.lsi.com',
+        'lt-ssdt26-07.lsi.com',
         'lt-ssdt26-08.lsi.com',]
         self.cb = []
 
@@ -79,6 +81,7 @@ class Window( QtGui.QWidget ):
         menu.addAction('uncheckall', self.uncheckall)
         menu.addAction('choose client', self.choosegroup1)
         menu.addAction('choose enteprise', self.choosegroup2)
+        menu.addAction('choose all', self.chooseall)
         self.pushbutton.setMenu(menu)
         vbox_right.addWidget( self.pushbutton )
 
@@ -122,6 +125,16 @@ class Window( QtGui.QWidget ):
 
         self.setLayout( hbox )
 
+        #self.cur_path = os.path.dirname(__file__)
+        self.cur_path = os.path.dirname(os.path.abspath(__file__))
+        self.list_folder = {
+                            'Pass': 'Pass',
+                            'Fail': 'Fail',
+                            'Error': 'Error',
+                            }
+        self.CleanLogFolder()
+
+
     def choosegroup1(self):
         self.choosegroup1 = [
         'sh-racka02.lsi.com',
@@ -150,6 +163,11 @@ class Window( QtGui.QWidget ):
             if self.list_machine[i] in self.choosegroup1:
                 self.cb[i].toggle()
                     
+    def chooseall(self):
+        for i in xrange(len(self.list_machine)):
+            if not self.cb[i].isChecked():
+                self.cb[i].toggle()
+
     def choosegroup2(self):
         pass
 
@@ -192,78 +210,51 @@ class Window( QtGui.QWidget ):
     def OnInputCmd(self):
         self.TestClientInput3()
 
-    def work2(self, hostname, cmd, output):
-        #sshCtl = None
-        sshCtl = self.__CtlConnect( hostname )
+    def work2(self, hostname, cmd):
+        sshCtl, error = self.__CtlConnect( hostname )
 
-        sshChannel = sshCtl.get_transport().open_session()
-        sshChannel.settimeout(5)
-        sshChannel.set_combine_stderr(True)
+        if error == 0:
+            
+            sshChannel = sshCtl.get_transport().open_session()
+            sshChannel.settimeout(5)
+            sshChannel.set_combine_stderr(True)
 
-        if cmd is None:
-            cmd = str(self.input.toPlainText())
-        try:
-            #print cmd + " is going to be issued on " + hostname
-            sshChannel.exec_command(cmd)
+            if cmd is None:
+                cmd = str(self.input.toPlainText())
+            try:
+                sshChannel.exec_command(cmd)
 
-            while not sshChannel.exit_status_ready():
-                buf = ''
+                while not sshChannel.exit_status_ready():
+                    buf1 = ''
+                    while sshChannel.recv_ready():
+                        buf1 += sshChannel.recv(1024)
+                    time.sleep(2)
+
+                # remember to get everything left when cmd returns
+                buf2 = 'The message after exit status ready:\n'
                 while sshChannel.recv_ready():
-                    #sshChannel.recv(1024), 
+                    buf2 += sshChannel.recv(1024)
 
-                    #print sshChannel.recv(1024),  # use comma(,) to avoid additional new line
+                if int(sshChannel.recv_exit_status()) == 0:
+                    output, logresult = self.WriteToFile('Pass', hostname)
+                    output.write( buf1,)
+                    output.write( buf2,)
+                    output.write("Exit status: %d" % sshChannel.recv_exit_status())
+                    output.flush()
+                else:
+                    output, logresult = self.WriteToFile('Fail', hostname)
+                    output.write(logresult)
+                    output.flush()
+            except Exception,err:
+                errstring = traceback.format_exc()
+                print errstring
 
-                    buf += sshChannel.recv(1024)
-
-                    #self.test_message.append(buf)
-
-                    #print buf
-
-                    output.write( buf,)
-                    #output.flush()
-                    #os.fsync(output.fileno())
-                    # num += 1
-                time.sleep(2)
-
-            # remember to get everything left when cmd returns
-            buf = 'The message after exit status ready:\n'
-
-            while sshChannel.recv_ready():
-
-                buf += sshChannel.recv(1024)
-
-            output.write( buf,)
-            #output.flush()
-            #os.fsync(output.fileno())
-            if int(sshChannel.recv_exit_status()) == 0:
-                output.write("Exit status: %d" % sshChannel.recv_exit_status())
-                output.flush()
-            else:
-                cur_path = os.path.dirname(__file__)
-                output_error = open(cur_path +'\\'+ 'error' +'.log' ,'w')
-                output_error.write("%s encounter error " %hostname )
-                output_error.flush()
-            #os.fsync(output.fileno())
-            #self.test_message.append(buf+'\n')
-        except Exception,err:
-            #pass
-            errstring = traceback.format_exc()
-            print errstring
-            #err = 'Timeout. Should not be raised because SSH connection is alive.'
-            #print err
-            #self.test_message.append(errstring)
-        #self.test_message.append(cmd + " completed on " + hostname + '\n')
-        sshChannel.close() 
+            output.close()
+            sshChannel.close() 
         sshCtl.close()
-        output.close()
-
+        
 
     def TestClientInput3(self, cmd = None):
-
-        # output.write("%s: Check the PARAMIKO LINK First\n" % time.ctime())
-        # output.flush()
-        # os.fsync(output.fileno())
-
         self.test_message.clear()
         threads = []
         mutex = threading.Lock()
@@ -271,10 +262,7 @@ class Window( QtGui.QWidget ):
             for i in xrange(len(self.list_machine)):
                 if self.cb[i].isChecked():
                     hostname = self.list_machine[i]
-                    cur_path = os.path.dirname(__file__)
-                    output = open(cur_path +'\\'+ hostname+'.log' ,'w')
-                    # self.work2(hostname, cmd, output)
-                    threads.append(threading.Thread(target=(self.work2), args=(hostname,cmd,output)))
+                    threads.append(threading.Thread(target=(self.work2), args=(hostname, cmd)))
 
             for t in threads:
                 t.start()
@@ -286,6 +274,42 @@ class Window( QtGui.QWidget ):
             print errstring
             #self.test_message.append(errstring)
         
+    def __CtlConnect(self ,hostname):
+
+        #global sshCtl
+        error = 0
+        try:
+            ctlUser = 'yoxu'
+            ctlPasswd = 'YXyx2345'
+            ctlPort=22
+            paramiko.util.log_to_file('paramiko.log', level=10)
+            sshCtl=paramiko.SSHClient()
+            sshCtl.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            sshCtl.use_sudo = True
+            sshCtl.connect(hostname=hostname,port=ctlPort, username=ctlUser,password=ctlPasswd)
+        except:
+            output, logresult = self.WriteToFile('Error', hostname)
+            output.write(logresult)
+            output.flush()
+            raise Exception('Connection to SSDT machine failed.')
+            error = 1
+        return sshCtl, error 
+
+    def WriteToFile(self, resultType, hostname):
+        logresult = "%s %s" %(hostname,resultType)
+        folder_logname = self.cur_path +'\\%s\\%s.log' %(resultType, hostname)     
+        output = open(folder_logname,'w')
+        return output, logresult
+
+    def CleanLogFolder(self):
+        for types in self.list_folder.keys():
+            location = self.cur_path +'\\'+self.list_folder[types]+ '\\'
+            self.CleanLog(location)
+
+    def CleanLog(self, path):
+        for files in os.listdir(path):
+            if files.endswith('.log'):
+                os.remove(path + files)
 
     def TestClientStart(self):
         for i in xrange(len(self.list_machine)):
@@ -344,28 +368,6 @@ class Window( QtGui.QWidget ):
                 for str_error in stderr.readlines():
                     self.test_message.append(str_error) 
                 self.test_message.append(stdout.read())  
-
-    def __CtlConnect(self ,host):
-
-        #global sshCtl
-        try:
-            ctlUser = 'yoxu'
-            ctlPasswd = 'YXyx2345'
-            ctlPort=22
-            paramiko.util.log_to_file('paramiko.log', level=10)
-            sshCtl=paramiko.SSHClient()
-            sshCtl.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            sshCtl.use_sudo = True
-            sshCtl.connect(hostname=host,port=ctlPort, username=ctlUser,password=ctlPasswd)
-        except:
-            cur_path = os.path.dirname(__file__)
-            output_error = open(cur_path +'\\'+ 'connect_error' +'.log' ,'w')
-            output_error.write("%s connection failed " %host )
-            output_error.flush()
-            raise Exception('Connection to SSDT machine failed.')
-        return sshCtl
-
-
 
 
 app = QtGui.QApplication( sys.argv )
