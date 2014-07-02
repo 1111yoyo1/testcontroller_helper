@@ -3,52 +3,65 @@ import sys
 from PyQt4 import QtGui, QtCore
 import paramiko
 import time,os,threading,traceback
+import win32clipboard
+from csvlib import *
 
 
 class Window( QtGui.QWidget ):
     def __init__( self ):
         super( Window, self ).__init__()
+
         self.setWindowTitle( "TestClient_helper" )
         self.resize( 500, 500 )
         hbox = QtGui.QHBoxLayout()
         vbox_left = QtGui.QVBoxLayout()
         vbox_right= QtGui.QVBoxLayout()
-        self.list_machine = \
-        [
-        'sh-racka01.lsi.com', 
-        'sh-racka02.lsi.com',
-        'sh-racka03.lsi.com',
-        'sh-racka04.lsi.com',
-        'sh-racka05.lsi.com',
-        'sh-racka06.lsi.com',
-        'sh-racka07.lsi.com',
-        'sh-racka08.lsi.com',
-        'sh-racka09.lsi.com',
-        'sh-racka10.lsi.com',
-        'sh-racka11.lsi.com',
-        'sh-racka12.lsi.com',
-        'sh-racka13.lsi.com',
-        'sh-racka14.lsi.com', 
-        'sh-racka15.lsi.com',
-        'lt-ssdt27-01.lsi.com',
-        'lt-ssdt27-02.lsi.com',
-        'lt-ssdt27-03.lsi.com',
-        'lt-ssdt27-04.lsi.com',
-        'lt-ssdt27-05.lsi.com',
-        'lt-ssdt27-06.lsi.com',
-        'lt-ssdt27-07.lsi.com',
-        'lt-ssdt27-08.lsi.com',
-        'lt-ssdt27-09.lsi.com',
-        'lt-ssdt27-10.lsi.com',
-        'lt-ssdt27-11.lsi.com',
-        'lt-ssdt27-12.lsi.com',
-        'lt-ssdt27-13.lsi.com',
-        'lt-ssdt27-14.lsi.com',
-        'lt-ssdt27-15.lsi.com',
-        '135.24.22.205',
-        'lt-ssdt26-06.lsi.com',
-        'lt-ssdt26-07.lsi.com',
-        'lt-ssdt26-08.lsi.com',]
+        self.cur_path = os.path.dirname(os.path.abspath(__file__))
+
+        self.list_machine = []
+        
+        self.csvfile = self.cur_path + '\\' + 'host.csv'
+        for i in GetColumnAllElements(self.csvfile,'hostname'):
+            self.list_machine.append(i)
+
+        # self.list_machine = \
+        # [
+        # 'sh-racka01.lsi.com', 
+        # 'sh-racka02.lsi.com',
+        # 'sh-racka03.lsi.com',
+        # 'sh-racka04.lsi.com',
+        # 'sh-racka05.lsi.com',
+        # 'sh-racka06.lsi.com',
+        # 'sh-racka07.lsi.com',
+        # 'sh-racka08.lsi.com',
+        # 'sh-racka09.lsi.com',
+        # 'sh-racka10.lsi.com',
+        # 'sh-racka11.lsi.com',
+        # 'sh-racka12.lsi.com',
+        # 'sh-racka13.lsi.com',
+        # 'sh-racka14.lsi.com', 
+        # 'sh-racka15.lsi.com',
+        # 'lt-ssdt27-01.lsi.com',
+        # 'lt-ssdt27-02.lsi.com',
+        # 'lt-ssdt27-03.lsi.com',
+        # 'lt-ssdt27-04.lsi.com',
+        # 'lt-ssdt27-05.lsi.com',
+        # 'lt-ssdt27-06.lsi.com',
+        # 'lt-ssdt27-07.lsi.com',
+        # 'lt-ssdt27-08.lsi.com',
+        # 'lt-ssdt27-09.lsi.com',
+        # 'lt-ssdt27-10.lsi.com',
+        # 'lt-ssdt27-11.lsi.com',
+        # 'lt-ssdt27-12.lsi.com',
+        # 'lt-ssdt27-13.lsi.com',
+        # 'lt-ssdt27-14.lsi.com',
+        # 'lt-ssdt27-15.lsi.com',
+        # '135.24.22.205',
+        # 'lt-ssdt26-06.lsi.com',
+        # 'lt-ssdt26-07.lsi.com',
+        # 'lt-ssdt26-08.lsi.com',
+        # 'lt-ssdt26-09.lsi.com',
+        # ]
         self.cb = []
 
         for i in self.list_machine:
@@ -80,7 +93,7 @@ class Window( QtGui.QWidget ):
         menu = QtGui.QMenu()
         menu.addAction('uncheckall', self.uncheckall)
         menu.addAction('choose client', self.choosegroup1)
-        menu.addAction('choose enteprise', self.choosegroup2)
+        menu.addAction('choose yoyo', self.choosegroup2)
         menu.addAction('choose all', self.chooseall)
         self.pushbutton.setMenu(menu)
         vbox_right.addWidget( self.pushbutton )
@@ -105,9 +118,9 @@ class Window( QtGui.QWidget ):
         vbox_right.addWidget( self.button10 )
         self.connect( self.button10, QtCore.SIGNAL( 'clicked()' ), self.OnSTBI)
 
-        self.button11 = QtGui.QPushButton( "CDU" )
+        self.button11 = QtGui.QPushButton( "Show hostname" )
         vbox_right.addWidget( self.button11 )
-        self.connect( self.button11, QtCore.SIGNAL( 'clicked()' ), self.OnCDU)
+        self.connect( self.button11, QtCore.SIGNAL( 'clicked()' ), self.OnShowhostname)
 
         self.button6 = QtGui.QPushButton( "input" )
         vbox_right.addWidget( self.button6 )
@@ -126,7 +139,7 @@ class Window( QtGui.QWidget ):
         self.setLayout( hbox )
 
         #self.cur_path = os.path.dirname(__file__)
-        self.cur_path = os.path.dirname(os.path.abspath(__file__))
+        
         self.list_folder = {
                             'Pass': 'Pass',
                             'Fail': 'Fail',
@@ -137,16 +150,43 @@ class Window( QtGui.QWidget ):
 
     def choosegroup1(self):
         self.choosegroup1 = [
-        'sh-racka02.lsi.com',
+        # 'sh-racka02.lsi.com',
+        # 'sh-racka03.lsi.com',
+        # 'sh-racka11.lsi.com',
+        # 'sh-racka12.lsi.com',
+        # 'sh-racka13.lsi.com',
+        # 'sh-racka14.lsi.com', 
+        # 'lt-ssdt27-01.lsi.com',
+        # 'lt-ssdt27-02.lsi.com',
+        # 'lt-ssdt27-03.lsi.com',
+        # 'lt-ssdt27-04.lsi.com',
+        # 'lt-ssdt27-05.lsi.com',
+        # 'lt-ssdt27-06.lsi.com',
+        # 'lt-ssdt27-07.lsi.com',
+        # 'lt-ssdt27-08.lsi.com',
+        # 'lt-ssdt27-09.lsi.com',
+        # 'lt-ssdt27-10.lsi.com',
+        # 'lt-ssdt27-11.lsi.com',
+        # 'lt-ssdt27-12.lsi.com',
+        # 'lt-ssdt27-13.lsi.com',
+        # 'lt-ssdt27-14.lsi.com',
+        # 'lt-ssdt27-15.lsi.com',
+        'sh-racka01.lsi.com', 
+        'sh-racka04.lsi.com',
+        'sh-racka09.lsi.com',
+        'lt-ssdt26-08.lsi.com',
+        ]
+        for i in xrange(len(self.list_machine)):
+            if self.list_machine[i] in self.choosegroup1:
+                self.cb[i].toggle()
+
+    def choosegroup2(self):
+        choosegroup2 = [
         'sh-racka03.lsi.com',
-        'sh-racka11.lsi.com',
-        'sh-racka12.lsi.com',
         'sh-racka13.lsi.com',
         'sh-racka14.lsi.com', 
-        'lt-ssdt27-01.lsi.com',
-        'lt-ssdt27-02.lsi.com',
         'lt-ssdt27-03.lsi.com',
-        'lt-ssdt27-04.lsi.com',
+        #'lt-ssdt27-04.lsi.com',
         'lt-ssdt27-05.lsi.com',
         'lt-ssdt27-06.lsi.com',
         'lt-ssdt27-07.lsi.com',
@@ -156,20 +196,15 @@ class Window( QtGui.QWidget ):
         'lt-ssdt27-11.lsi.com',
         'lt-ssdt27-12.lsi.com',
         'lt-ssdt27-13.lsi.com',
-        'lt-ssdt27-14.lsi.com',
-        'lt-ssdt27-15.lsi.com',
-        ]
+        ] 
         for i in xrange(len(self.list_machine)):
-            if self.list_machine[i] in self.choosegroup1:
+            if self.list_machine[i] in choosegroup2:
                 self.cb[i].toggle()
-                    
+
     def chooseall(self):
         for i in xrange(len(self.list_machine)):
             if not self.cb[i].isChecked():
                 self.cb[i].toggle()
-
-    def choosegroup2(self):
-        pass
 
     def uncheckall(self):
         for i in xrange(len(self.list_machine)):
@@ -184,9 +219,6 @@ class Window( QtGui.QWidget ):
 
     def OnRestart(self):
         self.TestClientInput3('python /home/yoxu/sc/sd/testclient.py')
-
-    # def OnInput(self):
-    #     self.TestClientInput3('source /home/yoxu/.bashrc')
 
     def OnIDFY(self):
         self.TestClientInput3("IdentifyDevice.py ")
@@ -203,9 +235,18 @@ class Window( QtGui.QWidget ):
     def OnSE(self):
         self.TestClientInput3("SecurityErase.py --mode=1")
 
-    def OnCDU(self):
-        #self.TestClientInput3("ConfigDriveUnique.py")
-        self.TestClientInput3("cdu")
+    def OnShowhostname(self):
+        self.test_message.clear()
+        result=''
+        for i in xrange(len(self.list_machine)):
+            if self.cb[i].isChecked():
+                result += self.cb[i].text().split('.')[0]+'|'
+        result = result[:-1]
+        win32clipboard.OpenClipboard()
+        win32clipboard.EmptyClipboard()
+        win32clipboard.SetClipboardText(str(result))
+        win32clipboard.CloseClipboard()
+        self.test_message.append(result)
 
     def OnInputCmd(self):
         self.TestClientInput3()
@@ -216,44 +257,62 @@ class Window( QtGui.QWidget ):
         if error == 0:
             
             sshChannel = sshCtl.get_transport().open_session()
-            sshChannel.settimeout(5)
+            sshChannel.settimeout(10)
             sshChannel.set_combine_stderr(True)
 
             if cmd is None:
                 cmd = str(self.input.toPlainText())
             try:
                 sshChannel.exec_command(cmd)
-
+                buf = ''
+                buf1 = ''
+                buf2 = 'The message after exit status ready:\n'
                 while not sshChannel.exit_status_ready():
-                    buf1 = ''
                     while sshChannel.recv_ready():
                         buf1 += sshChannel.recv(1024)
-                    time.sleep(2)
+                    time.sleep(3)
+                    # if buf1 != '':
+                    #     break
 
                 # remember to get everything left when cmd returns
-                buf2 = 'The message after exit status ready:\n'
                 while sshChannel.recv_ready():
                     buf2 += sshChannel.recv(1024)
+                buf = buf1 + buf2
 
-                if int(sshChannel.recv_exit_status()) == 0:
-                    output, logresult = self.WriteToFile('Pass', hostname)
-                    output.write( buf1,)
-                    output.write( buf2,)
-                    output.write("Exit status: %d" % sshChannel.recv_exit_status())
-                    output.flush()
-                else:
+                #print sshChannel.recv_exit_status()
+                #print int(sshChannel.recv_exit_status())
+
+                try:
+                    #self.test_message.append(str(sshChannel.recv_exit_status()))
+                    if sshChannel.recv_exit_status() == 0:
+                        output, logresult = self.WriteToFile('Pass', hostname)
+                    else:
+                        output, logresult = self.WriteToFile('Fail', hostname)
+                    # output, logresult = self.WriteToFile('Pass', hostname)
+                except socket.timeout:
                     output, logresult = self.WriteToFile('Fail', hostname)
-                    output.write(logresult)
-                    output.flush()
+                    raise socket.timeout
+                output.write( buf,)
+                output.flush()
+                    # print 2
+                    # print time.time()- timeStart
+                # timeStart = time.time()
+                # timeout = 15
+                # while ( time.time()- timeStart ) < timeout:
+                #     output, logresult = self.WriteToFile('Pass', hostname)
+                # output, logresult = self.WriteToFile('Fail', hostname)
+                # if sshChannel.recv_exit_status() == 0:
+                #     output, logresult = self.WriteToFile('Pass', hostname)
+                # else:
+                #     output, logresult = self.WriteToFile('Fail', hostname)
+
             except Exception,err:
                 errstring = traceback.format_exc()
-                print errstring
 
             output.close()
             sshChannel.close() 
         sshCtl.close()
         
-
     def TestClientInput3(self, cmd = None):
         self.test_message.clear()
         threads = []
@@ -268,7 +327,8 @@ class Window( QtGui.QWidget ):
                 t.start()
             for t in threads:
                 t.join()
-            print 'cmd completed'
+            self.test_message.append( " completed")   
+            #print 'cmd completed'
         except Exception, err:
             errstring = traceback.format_exc()
             print errstring
