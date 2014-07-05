@@ -6,139 +6,85 @@ import time,os,threading,traceback
 import win32clipboard
 from csvlib import *
 
-
 class Window( QtGui.QWidget ):
     def __init__( self ):
         super( Window, self ).__init__()
 
+
         self.setWindowTitle( "TestClient_helper" )
         self.resize( 500, 500 )
         hbox = QtGui.QHBoxLayout()
-        vbox_left = QtGui.QVBoxLayout()
-        vbox_right= QtGui.QVBoxLayout()
+        self.vbox_left = QtGui.QVBoxLayout()
+        self.vbox_right= QtGui.QVBoxLayout()
         self.cur_path = os.path.dirname(os.path.abspath(__file__))
 
         self.list_machine = []
-        
-        self.csvfile = self.cur_path + '\\' + 'host.csv'
+
+        self.hostcsv_path = r'\\cn-vmhost01.sandforce.com\\Share\\Scratch\\yoxu\\share\\testclient'
+        #self.csvfile = self.cur_path + '\\' + 'host.csv'
+        self.csvfile = self.hostcsv_path + '\\' + 'host.csv'
+
         for i in GetColumnAllElements(self.csvfile,'hostname'):
             self.list_machine.append(i)
 
-        # self.list_machine = \
-        # [
-        # 'sh-racka01.lsi.com', 
-        # 'sh-racka02.lsi.com',
-        # 'sh-racka03.lsi.com',
-        # 'sh-racka04.lsi.com',
-        # 'sh-racka05.lsi.com',
-        # 'sh-racka06.lsi.com',
-        # 'sh-racka07.lsi.com',
-        # 'sh-racka08.lsi.com',
-        # 'sh-racka09.lsi.com',
-        # 'sh-racka10.lsi.com',
-        # 'sh-racka11.lsi.com',
-        # 'sh-racka12.lsi.com',
-        # 'sh-racka13.lsi.com',
-        # 'sh-racka14.lsi.com', 
-        # 'sh-racka15.lsi.com',
-        # 'lt-ssdt27-01.lsi.com',
-        # 'lt-ssdt27-02.lsi.com',
-        # 'lt-ssdt27-03.lsi.com',
-        # 'lt-ssdt27-04.lsi.com',
-        # 'lt-ssdt27-05.lsi.com',
-        # 'lt-ssdt27-06.lsi.com',
-        # 'lt-ssdt27-07.lsi.com',
-        # 'lt-ssdt27-08.lsi.com',
-        # 'lt-ssdt27-09.lsi.com',
-        # 'lt-ssdt27-10.lsi.com',
-        # 'lt-ssdt27-11.lsi.com',
-        # 'lt-ssdt27-12.lsi.com',
-        # 'lt-ssdt27-13.lsi.com',
-        # 'lt-ssdt27-14.lsi.com',
-        # 'lt-ssdt27-15.lsi.com',
-        # '135.24.22.205',
-        # 'lt-ssdt26-06.lsi.com',
-        # 'lt-ssdt26-07.lsi.com',
-        # 'lt-ssdt26-08.lsi.com',
-        # 'lt-ssdt26-09.lsi.com',
-        # ]
-        self.cb = []
+        self.checkboxupdate()
 
-        for i in self.list_machine:
-            self.cb.append(QtGui.QCheckBox(i))
-
-        for j in xrange(len(self.list_machine)):
-            vbox_left.addWidget(self.cb[j])
-
-        hbox.addLayout(vbox_left)
-        hbox.addLayout(vbox_right) 
+        # self.pushbutton = QtGui.QPushButton('choose')
+        # menu = QtGui.QMenu()
+        # menu.addAction('Used by selection above', self.selecthost)
+        # menu.addAction('uncheckall', self.uncheckall)
+        # menu.addAction('choose all', self.chooseall)
+        # self.pushbutton.setMenu(menu)
+        # self.vbox_right.addWidget( self.pushbutton )
 
         self.button = QtGui.QPushButton( "start" )
-        vbox_right.addWidget( self.button )
+        self.vbox_right.addWidget( self.button )
         self.connect( self.button, QtCore.SIGNAL( 'clicked()' ), self.OnStart )
 
         self.button2 = QtGui.QPushButton( "stop" )
-        vbox_right.addWidget( self.button2 )
+        self.vbox_right.addWidget( self.button2 )
         self.connect( self.button2, QtCore.SIGNAL( 'clicked()' ), self.OnStop )
 
         self.button3 = QtGui.QPushButton( "restart" )
-        vbox_right.addWidget( self.button3 )
+        self.vbox_right.addWidget( self.button3 )
         self.connect( self.button3, QtCore.SIGNAL( 'clicked()' ), self.OnRestart )
 
-        # self.button4 = QtGui.QPushButton( "input" )
-        # vbox_right.addWidget( self.button4 )
-        # self.connect( self.button4, QtCore.SIGNAL( 'clicked()' ), self.OnInput)
+        self.pushbutton2 = QtGui.QPushButton('action')
+        menu2 = QtGui.QMenu()
 
-        self.pushbutton = QtGui.QPushButton('choose')
-        menu = QtGui.QMenu()
-        menu.addAction('uncheckall', self.uncheckall)
-        menu.addAction('choose client', self.choosegroup1)
-        menu.addAction('choose yoyo', self.choosegroup2)
-        menu.addAction('choose all', self.chooseall)
-        self.pushbutton.setMenu(menu)
-        vbox_right.addWidget( self.pushbutton )
-
-        self.button5 = QtGui.QPushButton( "IDFY" )
-        vbox_right.addWidget( self.button5 )
-        self.connect( self.button5, QtCore.SIGNAL( 'clicked()' ), self.OnIDFY)
-
-        self.button7 = QtGui.QPushButton( "PwOn" )
-        vbox_right.addWidget( self.button7 )
-        self.connect( self.button7, QtCore.SIGNAL( 'clicked()' ), self.OnPwOn)
-
-        self.button8 = QtGui.QPushButton( "PwOff" )
-        vbox_right.addWidget( self.button8 )
-        self.connect( self.button8, QtCore.SIGNAL( 'clicked()' ), self.OnPwOff)
-
-        self.button9 = QtGui.QPushButton( "SE" )
-        vbox_right.addWidget( self.button9 )
-        self.connect( self.button9, QtCore.SIGNAL( 'clicked()' ), self.OnSE)
-
-        self.button10 = QtGui.QPushButton( "STBI" )
-        vbox_right.addWidget( self.button10 )
-        self.connect( self.button10, QtCore.SIGNAL( 'clicked()' ), self.OnSTBI)
+        menu2.addAction('IDFY', self.OnIDFY)
+        menu2.addAction('PowerOn', self.OnPwOn)
+        menu2.addAction('PowerOff', self.OnPwOff)
+        menu2.addAction('SecurityErase', self.OnSE)
+        menu2.addAction('StandbyImmediate', self.OnSTBI)
+        self.pushbutton2.setMenu(menu2)
+        self.vbox_right.addWidget( self.pushbutton2 )
 
         self.button11 = QtGui.QPushButton( "Show hostname" )
-        vbox_right.addWidget( self.button11 )
+        self.vbox_right.addWidget( self.button11 )
         self.connect( self.button11, QtCore.SIGNAL( 'clicked()' ), self.OnShowhostname)
 
+        # self.button12 = QtGui.QPushButton( "Refresh hosts" )
+        # self.vbox_right.addWidget( self.button12 )
+        # self.connect( self.button12, QtCore.SIGNAL( 'clicked()' ), self.Refreshosts)
+
         self.button6 = QtGui.QPushButton( "input" )
-        vbox_right.addWidget( self.button6 )
+        self.vbox_right.addWidget( self.button6 )
         self.connect( self.button6, QtCore.SIGNAL( 'clicked()' ), self.OnInputCmd)
 
         self.input = QtGui.QPlainTextEdit(self)
-        vbox_right.addWidget( self.input )
+        self.vbox_right.addWidget( self.input )
 
         self.test_message = QtGui.QTextEdit(self)
-        vbox_right.addWidget( self.test_message )
+        self.vbox_right.addWidget( self.test_message )
 
         self.status = QtGui.QStatusBar(self)
-        vbox_right.addWidget(self.status)
+        self.vbox_right.addWidget(self.status)
         self.status.showMessage('Ready')
 
+        hbox.addLayout(self.vbox_left)
+        hbox.addLayout(self.vbox_right) 
         self.setLayout( hbox )
-
-        #self.cur_path = os.path.dirname(__file__)
         
         self.list_folder = {
                             'Pass': 'Pass',
@@ -147,69 +93,55 @@ class Window( QtGui.QWidget ):
                             }
         self.CleanLogFolder()
 
+    def checkboxupdate(self):
+        self.cb = []
+        for i in self.list_machine:
+            self.cb.append(QtGui.QCheckBox(i))
+        for j in xrange(len(self.list_machine)):
+            self.vbox_left.addWidget(self.cb[j])
 
-    def choosegroup1(self):
-        self.choosegroup1 = [
-        # 'sh-racka02.lsi.com',
-        # 'sh-racka03.lsi.com',
-        # 'sh-racka11.lsi.com',
-        # 'sh-racka12.lsi.com',
-        # 'sh-racka13.lsi.com',
-        # 'sh-racka14.lsi.com', 
-        # 'lt-ssdt27-01.lsi.com',
-        # 'lt-ssdt27-02.lsi.com',
-        # 'lt-ssdt27-03.lsi.com',
-        # 'lt-ssdt27-04.lsi.com',
-        # 'lt-ssdt27-05.lsi.com',
-        # 'lt-ssdt27-06.lsi.com',
-        # 'lt-ssdt27-07.lsi.com',
-        # 'lt-ssdt27-08.lsi.com',
-        # 'lt-ssdt27-09.lsi.com',
-        # 'lt-ssdt27-10.lsi.com',
-        # 'lt-ssdt27-11.lsi.com',
-        # 'lt-ssdt27-12.lsi.com',
-        # 'lt-ssdt27-13.lsi.com',
-        # 'lt-ssdt27-14.lsi.com',
-        # 'lt-ssdt27-15.lsi.com',
-        'sh-racka01.lsi.com', 
-        'sh-racka04.lsi.com',
-        'sh-racka09.lsi.com',
-        'lt-ssdt26-08.lsi.com',
-        ]
-        for i in xrange(len(self.list_machine)):
-            if self.list_machine[i] in self.choosegroup1:
-                self.cb[i].toggle()
+        self.qcbox = QtGui.QComboBox()
+        self.cb_admin = []
+        for i in GetColumnAllElements(self.csvfile,'info'):
+            self.cb_admin.append(str(i))
+        self.target_list = list(set(self.cb_admin))
+        self.qcbox.addItems(self.target_list)
+        self.qcbox.addItem('uncheckall')
+        self.qcbox.addItem('chooseall')
+        self.vbox_right.addWidget(self.qcbox)
+        self.connect( self.qcbox, QtCore.SIGNAL("currentIndexChanged(QString)"), self.selecthost )
 
-    def choosegroup2(self):
-        choosegroup2 = [
-        'sh-racka03.lsi.com',
-        'sh-racka13.lsi.com',
-        'sh-racka14.lsi.com', 
-        'lt-ssdt27-03.lsi.com',
-        #'lt-ssdt27-04.lsi.com',
-        'lt-ssdt27-05.lsi.com',
-        'lt-ssdt27-06.lsi.com',
-        'lt-ssdt27-07.lsi.com',
-        'lt-ssdt27-08.lsi.com',
-        'lt-ssdt27-09.lsi.com',
-        'lt-ssdt27-10.lsi.com',
-        'lt-ssdt27-11.lsi.com',
-        'lt-ssdt27-12.lsi.com',
-        'lt-ssdt27-13.lsi.com',
-        ] 
-        for i in xrange(len(self.list_machine)):
-            if self.list_machine[i] in choosegroup2:
-                self.cb[i].toggle()
+    def Refreshosts(self):
+        self.checkboxupdate()
 
-    def chooseall(self):
+    def selecthost(self):
         for i in xrange(len(self.list_machine)):
-            if not self.cb[i].isChecked():
-                self.cb[i].toggle()
+            self.cb[i].setEnabled(True)
 
-    def uncheckall(self):
-        for i in xrange(len(self.list_machine)):
-            if self.cb[i].isChecked():
-                self.cb[i].toggle()
+        ower = self.qcbox.currentText()
+        if ower == 'uncheckall':
+            for i in xrange(len(self.list_machine)):
+                self.cb[i].setDisabled(True)
+                if self.cb[i].isChecked():
+                    self.cb[i].toggle()
+
+        elif ower == 'chooseall':
+            for i in xrange(len(self.list_machine)):
+                if not self.cb[i].isChecked():
+                    self.cb[i].toggle()
+
+        else:
+            choosegroup = []
+            for i in GetAllRowByElement(self.csvfile, 'info', ower,'hostname'):
+                choosegroup.append(i)
+            for i in xrange(len(self.list_machine)):
+                if self.cb[i].isChecked():
+                    self.cb[i].toggle()
+
+                if self.list_machine[i] in choosegroup:
+                    self.cb[i].toggle()
+                else:
+                    self.cb[i].setDisabled(True)
 
     def OnStart(self):
         self.TestClientStart()
@@ -251,6 +183,9 @@ class Window( QtGui.QWidget ):
     def OnInputCmd(self):
         self.TestClientInput3()
 
+    def getserialparabyhost(self,hostname):
+        return ' --serial='+str(GetSingleRowByElement(self.csvfile, 'hostname', hostname,'serialnumber'))
+
     def work2(self, hostname, cmd):
         sshCtl, error = self.__CtlConnect( hostname )
 
@@ -259,9 +194,13 @@ class Window( QtGui.QWidget ):
             sshChannel = sshCtl.get_transport().open_session()
             sshChannel.settimeout(10)
             sshChannel.set_combine_stderr(True)
-
             if cmd is None:
                 cmd = str(self.input.toPlainText())
+                #self.test_message.append(self.getserialparabyhost(hostname))
+                if 's2' in cmd :
+                    #print self.getserialparabyhost(hostname)
+                    #self.test_message.append(self.getserialparabyhost(hostname))
+                    cmd += self.getserialparabyhost(hostname)
             try:
                 sshChannel.exec_command(cmd)
                 buf = ''
@@ -364,7 +303,10 @@ class Window( QtGui.QWidget ):
     def CleanLogFolder(self):
         for types in self.list_folder.keys():
             location = self.cur_path +'\\'+self.list_folder[types]+ '\\'
-            self.CleanLog(location)
+            if os.path.isdir(location):
+                self.CleanLog(location)
+            else:
+                os.mkdir(location)
 
     def CleanLog(self, path):
         for files in os.listdir(path):

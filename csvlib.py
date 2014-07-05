@@ -24,8 +24,8 @@ def GetRowByElement(csvfile,columnname,element):
     caseList = GetCsvEntries(csvfile)
     #print caseList
     for index, column in enumerate(caseList): 
-        if column[columnname] == element:
-            yield index
+        if str(column[columnname]) == str(element):
+            #yield index
             yield column
 
 def IsEmptyGenerator(generator):
@@ -116,8 +116,21 @@ def AddRow(listall, coloumnname, element):
             target_dict[ele] = ''
     return target_dict
 
+def GetAllRowByElement(csvfile, coloumnname, value, getColoumn):
+    element = GetRowByElement(csvfile, coloumnname, value)
+    for i in element:
+        yield i[getColoumn]
+
+def GetSingleRowByElement(csvfile, coloumnname, value, getColoumn):
+    element = GetRowByElement(csvfile, coloumnname, value)
+    for i in element:
+        if str(i[coloumnname]) == str(value):
+            #yield index
+            #yield column
+            return i[getColoumn]
+
 if __name__ == "__main__":
-    csvfile ='TestCases.csv'
+    csvfile ='host.csv'
     #listall = GetCsvEntries(csvfile)
     #print GetCsvListbyList(listall)
     #RemoveRowbyElement(csvfile,'hostname', 'sh-racka03.lsi.com')
@@ -130,3 +143,7 @@ if __name__ == "__main__":
     #     #print dict1
     #     dict1 = sorted(dict1.iteritems(), key=operator.itemgetter(1))
     #     #print dict1
+
+    element = GetRowByElement(csvfile,'info', 1)
+    for i in element:
+        print i['hostname']
